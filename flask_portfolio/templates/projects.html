@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>프로젝트</h1>
+<p class="muted">아래는 학습 및 실습으로 진행한 프로젝트입니다.</p>
+
+<div class="card-grid">
+  {% for p in data.projects %}
+  <article class="card">
+    <img src="{{ url_for('static', filename='images/' + p.image) }}" alt="{{ p.title }}">
+    <div class="card-body">
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.summary }}</p>
+      <div class="tags">
+        {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      {% if p.link %}<a class="btn" href="{{ p.link }}" target="_blank">자세히 보기</a>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

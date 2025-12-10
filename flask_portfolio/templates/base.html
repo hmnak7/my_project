@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ data.profile.name }} | 포트폴리오</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('index') }}">💼 {{ data.profile.name }}</a>
+      <nav class="nav">
+        <a href="{{ url_for('index') }}">홈</a>
+        <a href="{{ url_for('projects') }}">프로젝트</a>
+        <a href="{{ url_for('about') }}">이력</a>
+        <a class="cta" href="{{ url_for('contact') }}">연락처</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {{ data.profile.name }} · Built with Flask</p>
+    </div>
+  </footer>
+</body>
+</html>

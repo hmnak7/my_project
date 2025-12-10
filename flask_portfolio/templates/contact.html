@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>연락처</h1>
+<p class="muted">아래 채널로 편하게 연락 주세요.</p>
+
+<div class="contacts">
+  <a class="btn" href="mailto:{{ data.profile.email }}">이메일 보내기</a>
+  <a class="btn" href="{{ data.profile.github }}" target="_blank">GitHub</a>
+  <a class="btn" href="{{ data.profile.linkedin }}" target="_blank">LinkedIn</a>
+</div>
+
+<!-- <div class="card note">
+  <p>⚠️ 개인정보는 <code>app.py</code> 상단의 <code>data['profile']</code>에서 수정하세요.</p>
+</div>
+{% endblock %} -->

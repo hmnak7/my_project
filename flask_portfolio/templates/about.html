@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>이력</h1>
+
+<section class="about">
+  <h2>소개</h2>
+  <p>{{ data.profile.bio }}</p>
+</section>
+
+<section>
+  <h2>경력</h2>
+  {% for exp in data.experience %}
+  <div class="timeline-item">
+    <div class="ti-head">
+      <strong>{{ exp.role }}</strong> · <span>{{ exp.company }}</span>
+      <span class="muted">({{ exp.period }})</span>
+    </div>
+    <ul class="ti-body">
+      {% for d in exp.details %}
+      <li>{{ d }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
+
+<section>
+  <h2>학력 및 교육</h2>
+  <ul class="edu">
+    {% for ed in data.education %}
+    <li>
+      <strong>{{ ed.school }}</strong> — {{ ed.degree }}
+      <span class="muted">({{ ed.period }})</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

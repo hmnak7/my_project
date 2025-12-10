@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>{{ data.profile.title }}</h1>
+    <p class="bio">{{ data.profile.bio }}</p>
+    <div class="meta">
+      <span>📍 {{ data.profile.location }}</span>
+      <a href="{{ data.profile.github }}" target="_blank">GitHub</a>
+      <a href="{{ data.profile.linkedin }}" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section class="skills">
+  <h2>🛠 Skills</h2>
+  <div class="skills-grid">
+    {% for s in data.skills %}
+    <div class="skill">
+      <div class="skill-top">
+        <span>{{ s.name }}</span>
+        <span>{{ s.level }}%</span>
+      </div>
+      <div class="bar"><div class="fill" style="width: {{s.level }}%"></div></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="projects">
+  <div class="section-head">
+    <h2>📂 Featured Projects</h2>
+    <a class="link" href="{{ url_for('projects') }}">전체 보기 →</a>
+  </div>
+  <div class="card-grid">
+    {% for p in data.projects %}
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/' + p.image) }}" alt="{{ p.title }}">
+      <div class="card-body">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+        <div class="tags">
+          {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+        </div>
+        <a class="btn" href="{{ p.link }}" target="_blank">프로젝트 링크</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
