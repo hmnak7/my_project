@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <script>
+        //학생점수 배열
+        let scores = [85, 92, 76, 88, 90];
+
+        function addScore(score){
+            scores.push(score);
+
+        }
+
+        function removeScore(index){
+            if (index >= 0 && index < scores.length) {
+                 const removed = scores.splice(index, 1)
+                 print("삭제: "+removed);
+            } else {
+                print("잘못된 인덱스 입니다.")
+            }
+        }
+        
+
+        function TotAvg() {
+            const total = scores.reduce((acc,score) => acc + score, 0);
+            const average = total / scores.length;
+            print("총점: " + total);
+            print("평균: " + average.toFixed(2));
+
+        }
+
+        function printScore() {
+            print("<hr>", "")
+            scores.forEach(num => {
+                print(num, " ")
+            });
+            print("<hr>","");
+        }
+
+        function print(value, sep="<br>"){
+            document.write(value + sep);
+        }
+
+        printScore();
+        addScore(98);
+        printScore();
+        removeScore(3);
+        printScore();
+        TotAvg();
+    </script>
+</body>
+</html>

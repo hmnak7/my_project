@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../myfunc.js"></script>
+    <script>
+       $(function(){
+           $("p").on("click", function(){
+            //클래스가 "jq"인 요소를 모두 선택
+            // $(".jq").css("backgroundColor","lightgray");
+            $(".jq").css({"backgroundColor":"lightgray","color":"blue"});
+           }).css("cursor","pointer");
+       });
+    </script>
+</head>
+<body>
+    <h1>클래스 선택자</h1>
+
+    <p class="jq">이제부터 제이쿼리를 다 같이 공부해보죠</p>
+    <p class="jq">클래스 선택자로 특성 요소들을 한 번에 선택할 수 있어요!!</p>
+    <p>마우스로 글씨를 클릭해보세요!!</p>
+</body>
+</html>

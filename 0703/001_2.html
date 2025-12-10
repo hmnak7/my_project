@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <h2>할일 목록 추가하기</h2>
+    <input type="text" id="mytodo" value=""/>
+    <button id="addBtn">추가</button>
+    <ul id="todolist">
+        <li>공부하기</li>
+        <li>청소하기</li>
+    </ul>
+    <script>
+        function addtodo() {
+
+            let inputVal = document.getElementById("mytodo").value;
+
+            if(inputVal.trim() !=""){
+
+                var a = document.getElementById("todolist").innerHTML;
+                // var a = document.getElementById("todolist"); /*객체로 받기*/
+
+                document.getElementById("todolist").innerHTML = a + `<li>${inputVal}</li>`;
+
+                document.getElementById("mytodo").value = "";
+                document.getElementById("mytodo").focus();
+
+                document.getElementById("addBtn").removeEventListener('click', addtodo);
+
+            }else{
+                alert("값을 입력해 주세요~")
+            }
+
+        }
+
+        document.getElementById("addBtn").addEventListener('click', addtodo);
+        // document.getElementById("addBtn").removeEventListener('click', addtodo);
+        document.getElementById("mytodo").addEventListener('keydown',function(event){
+            console.log(event.key);
+            if(event.key == 'Enter')addtodo();
+        })
+    </script>    
+</body>
+</html>

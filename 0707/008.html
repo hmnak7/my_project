@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <script>
+        let scores = [
+            [85, 92, 75, 90, 88], //국어
+            [92, 78, 98, 88, 85], //영어
+            [95, 75, 93, 80, 90]  //수학
+        ];
+
+        // 1. 각 과목별 총점과 평균 구하기
+        let sbj = ['국어', '영어', '수학'];
+
+        for (let i = 0; i < scores.length; i++) {
+            let sbjtot = 0;
+            for (let j = 0; j < scores[i].length; j++) {
+                sbjtot += scores[i][j];
+            }
+            print(sbj[i] + " 총점: " + sbjtot, " / ");
+            print("평균: " + (sbjtot / scores[i].length. toFixed(1)));
+        }
+
+        // 2. 각 학생별 성적 총점과 평균 구하기
+
+        for (let k=0; k < scores[0].length; k++){
+            let stdtot = 0;
+            for(let n = 0; n < scores.length; n++){
+                stdtot += scores[n][k];
+            }
+            print((k+1)+"번째 학생 총점: " + stdtot, " / ");
+            print("평균: " + (stdtot / scores.length).toFixed(2));
+        }
+        
+        
+
+
+
+    
+        
+        function print(value ="", sep="<br>"){
+            document.write(value + sep);
+        }
+    </script>
+</body>
+</html>

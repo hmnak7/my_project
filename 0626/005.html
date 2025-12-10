@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Sibling Selectors</title>
+  <style>
+    div{
+        border: 3px solid #F08080;
+    }
+    /* 일반 형제 선택자 */
+    div ~ p {
+        background-color: #FFE4E1;
+    }
+  </style>
+</head>
+
+<body>
+    
+  <h1>일반 동위 선택자를 이용한 선택</h1>
+  <p>이 p태그는 div 태그의 sibling 이지만 dov 태그보다 앞에 나옵니다!</p>
+  <div>
+    <p>이 p태그는 div 태그의 child입니다!</p>
+    <p>이 p태그는 div 태그의 child입니다!</p>
+    <p>이 p태그는 div 태그의 child입니다!</p>
+  </div>
+  <p>이 p태그는 div 태그의 child입니다!</p>
+  <p>이 p태그는 div 태그의 child입니다!</p>
+</body>
+</html>

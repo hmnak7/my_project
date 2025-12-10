@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden"># 숨길 첫 번째 요소</div>
+    <div class="hidden"># 숨길 두 번째 요소</div>
+    <div>@ 숨기지 않을 요소</div>
+    <div class="hidden"># 숨길 세 번째 요소</div>
+
+    <button id = "magic">마술사</button>
+
+    <script>
+        /*
+        마술사 버튼을 눌렀을 때
+        div 태그에 hidden이라는 클래스를 적용하거나 제거하도록
+        */
+        var ele3 = document.querySelectorAll("div");
+        var ele4 = document.querySelector("#magic");
+
+        ele4.addEventListener("click", function(){
+            // for(let e of ele3){
+            // e.classList.add("hidden", "a", "b");
+            // e.classList.add("c");
+            // e.classList.add("d");
+            // e.classList.add("e");
+
+            // e.classList.remove("d");
+            // }
+
+            for(let i = 0; i < ele3.length; i++){
+            ele3[i].classList.add("hidden", "a", "b");
+            ele3[i].classList.add("c");
+            ele3[i].classList.add("d");
+            ele3[i].classList.add("e");
+
+            if(i==2)ele3[i].classList.remove("d");
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜 카운트다운</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #countdown { font-size: 24px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>날짜 카운트다운</h1>
+    <label for="dateInput">날짜를 입력하세요:</label>
+    <input type="date" id="dateInput">
+    <button id="checkButton">확인</button>
+    <div id="countdown"></div>
+
+    <script>
+		let interval;
+        document.getElementById('checkButton').addEventListener('click', function() {		
+
+			if(interval) clearInterval(interval);
+			
+			const inputDate = new Date(document.getElementById('dateInput').value);
+            const countdownElement = document.getElementById('countdown');
+
+            interval = setInterval(() => {
+                const now = new Date();
+                const diff = inputDate - now;
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `
+                    남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초
+                `;
+
+                if (diff <= 0) {
+                    countdownElement.innerHTML = '지난 날짜입니다.';
+                    clearInterval(interval);
+                }
+            }, 1000);
+        
+		});
+    </script>
+</body>
+</html>

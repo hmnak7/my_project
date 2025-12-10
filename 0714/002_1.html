@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../myfunc.js"></script>
+    <script>
+       $(function(){
+           $("button#0").on("click", function() {
+            $("img[alt='mypic']").attr({"src":"../img/001.jpg","width":"500"})
+           });
+
+           $("button#1").on("click", function() {
+            $("img[alt='mypic']").attr({"src":"../img/002.jpg","width":"500"})
+           });
+           
+           $("button#2").on("click", function() {
+            $("img[alt='mypic']").attr({"src":"../img/003.jpg","width":"500"})
+           });
+       });
+    </script>
+</head>
+<body>
+    <img src="../img/001.jpg" width="500" alt="mypic"/><br>
+    <button id = "0">이미지0</button>
+    <button id = "1">이미지1</button>
+    <button id = "2">이미지2</button>
+</body>
+</html>

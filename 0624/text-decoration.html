@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>text-decoration</title>
+    <style>
+      a{
+        text-decoration: none;
+      }
+      /* link:링크상태, visited:방문(클릭)한 경우 */
+      a:link, a:visited{
+        color: #222;
+      }
+      /* hover:마우스가 링크에 올라갔을때 */
+      a:hover{
+        color: #f51616;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>text-decoration 속성</h1>
+    <!-- Do it! 인라인 스타일을 사용해 text-decoration 속성 적용하기 -->
+     <p><a href="#" style="text-decoration: none;">링크</a></p>
+    <p style="text-decoration: none;">none</p>
+    <p style="text-decoration: underline;">underline</p>
+    <p style="text-decoration: overline;">overline</p>
+    <p style="text-decoration: line-through;">line through</p>
+  </body>
+</html>

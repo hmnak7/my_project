@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>레드향 주문하기</title>
+</head>
+<body>
+  <h1>레드향 주문하기</h1>
+  <form action="register.php" method="post">
+    <fieldset>
+      <legend>상품 선택</legend>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox" name="product[]" value="레드향 1kg" checked>
+            레드향 1kg (10,000원)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="product[]" value="레드향 2kg">
+            레드향 2kg (18,000원)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="product[]" value="레드향 3kg">
+            레드향 3kg (25,000원)
+          </label>
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>배송 정보</legend>
+      
+      <ul>
+        <li>이름: <input type="text" name="user-name" value="홍길동" required></li>
+        <li>주소: <input type="text" name="user-address" value="경기도 성남시" readonly></li>
+        <li>연락처: <input type="tel" name="user-phone" required></li>
+        <li>이메일: <input type="email" name="user-email" required></li>
+      </ul>  
+
+    </fieldset> 
+    <input type="hidden" name="secret" value="아무도 모르지롱~~^^">
+    <input type="submit" value="주문하기">
+  </form>
+</body>
+</html>

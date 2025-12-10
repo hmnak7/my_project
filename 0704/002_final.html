@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <style>
+        .b {color: blue}
+        .r {color: red}
+        table {
+            border-collapse: collapse;
+            border:1px solid #333;
+        }
+        td {
+            border:1px solid #333; 
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    구구단: 
+    <input type="number" id="start" min="2" max="9" value="2"> ~
+    <input type="number" id="end" min="2" max="9" value="9">, 
+    열 수:
+    <input type="number" id="div" min="2" max="9" value="4"> 
+
+    <button id="gugu_start">적용하기</button>
+    <br><br>
+    <div id="gugu_cont"></div>
+
+    <script>
+        /* 5) 함수적용(start, end, div) */
+
+        function gugudan(start, end, div){
+
+			document.write("<table>");
+            document.write("<tr>");
+			var init = 0;
+            for(let i=start; i<=end; i++){
+                init++;
+				document.write("<td>");
+                for(let j=1; j<=9; j++){
+                    document.write(`${i} x ${j} = ${i*j}<br>`);        
+                }
+                document.write("</td>");
+                if(init % div ==0) document.write("</tr><tr>");
+            }
+            document.write("</tr>");
+            document.write("</table>");
+
+        }
+		
+		function gugudan2(start, end, div){
+
+			var cont = '';
+			cont += "<table>";
+            cont += "<tr>";
+			var init = 0;
+            for(let i=start; i<=end; i++){
+                init++;
+				cont += "<td>";
+                for(let j=1; j<=9; j++){
+                    cont += `${i} x ${j} = ${i*j}<br>`;
+                }
+                cont += "</td>";
+                if(init % div ==0) cont += "</tr><tr>";
+            }
+            cont += "</tr>";
+            cont += "</table>";
+			
+			document.querySelector("#gugu_cont").innerHTML = cont;
+
+        }
+        
+        //gugudan(2, 9, 4);
+		
+		document.querySelector("#gugu_start").addEventListener("click",function(){
+			var start = document.querySelector("#start").value;
+			var end = document.querySelector("#end").value;
+			var div = document.querySelector("#div").value;
+			
+			gugudan2(start, end, div);
+			
+		});
+
+    </script>
+</body>
+</html>

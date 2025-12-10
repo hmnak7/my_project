@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../myfunc.js"></script>
+    <script>
+        $(function(){
+            $("p").on("click", function(){
+                //$("span").css({"font-size","50px");
+                $("span").css({"font-size":"50px","color":"red"});
+
+                $("#jq").css({"border":"2px solid orange","background-color":"#73b9ff","color":"#ffff00"});
+
+                $(".text").text("텍스트입니다.");
+                $(".html").html("<h2>HTML입니다.</h2>");
+
+                let newDiv = $("<div></div>");
+                $("body").append(newDiv);
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>HTML selctor</h1>
+    <p>이제부터 <span>제이쿼리</span>를 다 같이 공부해보죠!! <br>
+    마우스로 글씨를 클릭해보세요!!</p>
+    <p id="jq">제이쿼리 좋죠? ^^</p>
+    <div class="text"></div>
+    <div class="html"></div>
+</body>
+</html>

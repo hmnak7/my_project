@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        // 함수: 코드의 재사용을 가능하게 하고, 특정 작엄을 수행하는 독립적인 블록
+        function addNum(x, y){
+            
+            // 기능구현 및 실행이 목적
+            /* 
+            // document.write(x + y + "<br>");
+            */
+
+            // 기능구현 후 결과값 반환이 목적
+            return x + y;
+        }
+
+        function print(value="", sep="<br>"){
+            document.write(value + sep);
+        }
+
+        function cprint(value=""){
+            console.log(value);
+        }
+
+        print(addNum(3, 5));
+
+        let result1 = addNum(12, 10);
+        let result2 = addNum(7, 3);
+
+        print(result1+"/"+result2)
+
+        function greeting(name){
+            return name + "님 안녕하세요~";
+        }
+        
+        let a =  greeting("홍길동");
+        print(a);
+
+        // 함수 표현식
+        // 일반함수
+
+        function sqr(x, y){
+            return x**y;
+        }
+
+        print(sqr(3,4))
+
+        //함수 표현식
+
+        var sqr2 = function(x, y){
+            return x**y;
+        }
+         print(sqr2(3,4))
+
+         //화살표 함수
+         var sqr3 = (x, y) => x**y;
+         print(sqr3(3,4))
+
+         function sqr4(x, y){
+            return [x**2, y**2]
+         }
+
+         cprint(sqr4(7,8))
+    </script>
+</body>
+</html>

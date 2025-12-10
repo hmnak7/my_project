@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../myfunc.js"></script>
+</head>
+<body>
+    <script>
+        var score = [80, 95, 90, 87, 93];
+
+        function sum (dat){
+            // let tot = 0;
+            // for(let v of dat){
+            //     tot += v;
+            // }
+            // return tot;
+            return dat.reduce((acc, x) => acc + x, 0)
+        }
+
+        function avg (dat){ 
+
+            return sum(dat) / dat.length;
+        }
+
+        print2("Sum: ", sum(score));
+        print2("Average: ", avg(score));
+    </script>
+</body>
+</html>

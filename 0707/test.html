@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적 계산 결과</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h2>📘 과목별 총점과 평균</h2>
+    <table id="subjectTable">
+        <thead>
+            <tr>
+                <th>과목</th>
+                <th>총점</th>
+                <th>평균</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>📗 학생별 총점과 평균</h2>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>학생</th>
+                <th>총점</th>
+                <th>평균</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        let scores = [
+            [85, 92, 75, 90, 88], //국어
+            [92, 78, 98, 88, 85], //영어
+            [95, 75, 93, 80, 90]  //수학
+        ];
+
+        let subjects = ["국어", "영어", "수학"];
+        let subjectTableBody = document.querySelector("#subjectTable tbody");
+        let studentTableBody = document.querySelector("#studentTable tbody");
+
+        // 1. 각 과목별 총점과 평균 구하기
+        for (let i = 0; i < scores.length; i++) {
+            let total = 0;
+            for (let j = 0; j < scores[i].length; j++) {
+                total += scores[i][j];
+            }
+            let avg = (total / scores[i].length).toFixed(2);
+
+            let row = subjectTableBody.insertRow();
+            row.insertCell().textContent = subjects[i];
+            row.insertCell().textContent = total;
+            row.insertCell().textContent = avg;
+        }
+
+        // 2. 각 학생별 성적 총점과 평균 구하기
+        for (let i = 0; i < scores[0].length; i++) {
+            let total = 0;
+            for (let j = 0; j < scores.length; j++) {
+                total += scores[j][i];
+            }
+            let avg = (total / scores.length).toFixed(2);
+
+            let row = studentTableBody.insertRow();
+            row.insertCell().textContent = `${i + 1}번 학생`;
+            row.insertCell().textContent = total;
+            row.insertCell().textContent = avg;
+        }
+    </script>
+</body>
+</html>

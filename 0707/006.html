@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <script>
+        //객체 (object)
+        const obj = {
+            name: 'Alice',
+            age: 25
+        };
+
+        document.write(obj.name + "<br>");
+        document.write(obj["name"] + "<br>");
+
+        //혼합 사용(배열 안에 객체를 인덱스로 활용)
+        const arrayWithObjects = [
+            {key1: 'value1'},
+            {key2: 'value2'}
+        ];
+
+        document.write(arrayWithObjects[0]["key1"])
+        // document.write(arrayWithObjects[1]["key2"])
+        
+    </script>
+</body>
+</html>

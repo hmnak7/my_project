@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+    <style>
+        p {margin: 0; color: blue;}
+        .r {color: red;}
+        .g {color: green;}
+
+    </style>
+</head>
+<body>
+    <script>
+        var i = 0;
+        var fruit = ['사과', '배', '복숭아', '수박', '참외', '메론'];
+
+        console.log(fruit[0]);
+
+        while(i < fruit.length){
+            if(fruit[i]=='참외'||fruit[i]=='수박'){
+                i++;
+                continue;
+            }
+            document.write(fruit[i] + "는 최고!<br>");
+            i ++;
+        }
+
+        for(let j = 0; j<fruit.length; j++){
+            // if(j%2==1) continue;
+            document.write(`<p>${fruit[j]}는 최고!</p>`);
+        }
+
+        for(let j2 in fruit){
+            if(j2%2==1) continue;
+            document.write(`<p class="r">${fruit[j2]}는 최고!</p>`);
+        }
+
+        for(let j3 of fruit){
+            document.write(`<p class="g">${j3}는 최고!</p>`);
+        }
+
+        fruit.forEach(function(name, num){
+            document.write(`<p class="r"> ${num+1}) ${name} 는 최고!</p>`);
+        });
+
+         function logFruit(name, num){
+            document.write(`<p class="b"> ${num+1}) ${name} 는 최고!</p>`);
+        };
+
+        fruit.forEach(logFruit);
+
+    </script>
+</body>
+</html>

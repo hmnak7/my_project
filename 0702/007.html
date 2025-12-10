@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {border: 1px solid #333; margin-right: 5px; border-radius: 10px;}
+    </style>
+</head>
+<body>
+    <div id="colorButtons"></div>
+    <script>
+        let colors = ['red', 'orange', 'yellow','green', 'blue', 'navy', 'purple'];
+        let btn = document.getElementById('colorButtons');
+
+        for(let i = 0; i < colors.length; i++){
+            btn.innerHTML = btn.innerHTML + `<button style="background-color: ${colors[i]};">${colors[i]}</button>`;
+        };
+
+        /*
+        colors.forEach(function(color){
+            btn.innerHTML = btn.innerHTML + `<button style="background-color: ${color};">${color}</button>`;
+        });
+        */
+    </script>
+</body>
+</html>

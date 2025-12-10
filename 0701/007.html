@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험 점수 예제</title>
+</head>
+<body>
+    <script>
+        var marthScore = 55, englishScore = 90, scienceScore = 95;
+
+        //모든 과목이 60점 이상인 경우
+        if (mathScore >= 60 && englishScore >= 60 && scienceScore >= 60) {
+            document.write("모든 과목에서 통과했습니다!<br>");
+        } else {
+            document.write("어떤 과목에서 통과하지 못했습니다.<br>");
+        }
+
+        // 수학 점수가 80점 이상이거나 영어 점수가 80점 이상인 경우
+        if (mathScore >= 80 || englishScore >= 80) {
+            document.write("수학 또는 영어에서 우수한 성적을 받았습니다.");
+        } else {
+             document.write("수학과 영어 모두에서 우수한 성적을 받지 못했습니다.");
+        }
+    </script>
+</body>

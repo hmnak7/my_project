@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #d63384; /* 진한 분홍색 */
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2); /* 분홍 그림자 */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px 18px;
+    border: 1px solid #f8c1d4;
+    text-align: center;
+    font-size: 16px;
+}
+
+th {
+    background-color: #ffb6c1; /* 연한 분홍 */
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #ffe6ec; /* 아주 연한 분홍 */
+}
+
+tr:hover {
+    background-color: #ffd4e3; /* hover 시 진해진 분홍 */
+    transition: background-color 0.2s ease-in-out;
+}
+
+    </style>
+    <!-- chart.js 라이브러리 CDN주소  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+<h1>로봇 센싱 데이터 대시보드</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>시간</th>
+            <th>온도(℃)</th>
+            <th>습도(%)</th>
+            <th>진동(m/s²)</th>
+        </tr>
+    </thead>
+    <tbody id = "data-table-body">
+    </tbody>
+</table>
+
+<!-- chart를 표시할 위치(영역) -->
+<canvas id="sensorChart"></canvas>
+<canvas id="sensorChart2"></canvas>
+
+    <script>
+        const sensorData = [
+      { "time": "08:00", "temperature": 22, "humidity": 45, "vibration": 0.5 },
+      { "time": "09:00", "temperature": 24, "humidity": 50, "vibration": 0.7 },
+      { "time": "10:00", "temperature": 23, "humidity": 48, "vibration": 0.6 },
+      { "time": "11:00", "temperature": 25, "humidity": 55, "vibration": 0.8 },
+      { "time": "12:00", "temperature": 26, "humidity": 52, "vibration": 0.9 },
+      { "time": "13:00", "temperature": 27, "humidity": 54, "vibration": 1.0 },
+      { "time": "14:00", "temperature": 28, "humidity": 56, "vibration": 1.2 },
+      { "time": "15:00", "temperature": 29, "humidity": 58, "vibration": 1.1 },
+      { "time": "16:00", "temperature": 28, "humidity": 60, "vibration": 1.0 },
+      { "time": "17:00", "temperature": 27, "humidity": 59, "vibration": 0.9 },
+      { "time": "18:00", "temperature": 25, "humidity": 57, "vibration": 0.8 },
+      { "time": "19:00", "temperature": 24, "humidity": 55, "vibration": 0.7 },
+      { "time": "20:00", "temperature": 23, "humidity": 53, "vibration": 0.6 },
+      { "time": "21:00", "temperature": 22, "humidity": 50, "vibration": 0.5 },
+      { "time": "22:00", "temperature": 21, "humidity": 48, "vibration": 0.4 }
+    ];
+
+    const tablebody = document.getElementById('data-table-body');
+
+    let rows = '';
+    sensorData.forEach(data => {
+    rows += `
+         <tr>
+            <td>${data.time}</td>
+            <td>${data.temperature}</td>
+            <td>${data.humidity}</td>
+            <td>${data.vibration}</td>
+        </tr>
+         `;
+        
+    });
+
+    tablebody.innerHTML = rows;
+
+    //그래프 그리기
+    sensorData.forEach(data => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${data.time}</td>
+            <td>${data.temperature}</td>
+            <td>${data.humidity}</td>
+            <td>${data.vibration}</td>
+         `;
+         tablebody.appendChild(row);
+        
+    });
+
+    let temp = [];
+    sensorData.forEach(data => {
+        temp.push(data.temperature);
+    });
+
+    console.log(temp);
+
+
+  // 차트 생성
+  const ctx = document.getElementById('sensorChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: sensorData.map(data => data.time),
+        datasets: [
+            {
+                label: '온도 (°C)',
+                data: sensorData.map(data => data.temperature),
+                borderColor: 'rgba(255, 99, 132, 1)',
+                fill: false,
+            },
+            {
+                label: '습도 (%)',
+                data: sensorData.map(data => data.humidity),
+                borderColor: 'rgba(54, 162, 235, 1)',
+                fill: false,
+            },
+            {
+                label: '진동 (m/s²)',
+                data: sensorData.map(data => data.vibration),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            },
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: '시간'
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: '값'
+                }
+            }
+        }
+    }
+});
+
+const ctx2 = document.getElementById('sensorChart2').getContext('2d');
+const chart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: sensorData.map(data => data.time),
+        datasets: [
+            {
+                label: '온도 (°C)',
+                data: sensorData.map(data => data.temperature),
+                backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            },
+            {
+                label: '습도 (%)',
+                data: sensorData.map(data => data.humidity),
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: '진동 (m/s²)',
+                data: sensorData.map(data => data.vibration),
+                backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            },
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: '시간'
+                },
+                stacked: false
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: '값'
+                }
+            }
+        }
+    }
+});
+    </script>
+
+   
+</body>
+</html>

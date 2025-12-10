@@ -1,0 +1,144 @@
+<!-- 1.기본 HTML 구조 -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+         <meta charset="UTF-8">
+         <title>재미있는 HTML</title>
+         <style>
+            html {
+                scroll-behavior: smooth;
+            }
+         </style>
+    </head>
+    <body>
+        <!-- 2. 제목 태그 -->
+        <h1 id="my home">제목1</h1>
+        <h2>제목2</h2>
+        <h3>제목3</h3>
+        <!-- 2./제목 태그 -->
+
+        <a href="#divtag">div 태그로</a><br>
+        <button type="button" onclick="location.href='#divtag'">div태그로</button><br>
+
+        <!-- 3. 단락 태그 -->
+        <p>이것은 첫번 째 단락입니다.</p>
+        <p>이것은 두번 째 단락입니다.</p>
+        <!-- 3. /단락 태그 -->
+
+        <!-- 4. 링크 만들기 -->
+         <a href="https://www.naver.com">네이버로 이동</a>
+         <a href="https://www.youtube.com">유튜브로 이동</a><br>
+         <!-- 4./링크 만들기 -->
+
+         <!-- 5.이미지 삽입 -->
+          <img src="https://picsum.photos/300/200" alt="랜덤 이미지"
+          width="300" height="200"> <br>
+          <!-- 5./이미지 삽입 -->
+
+          <!-- 6.목록 만들기 -->
+           <ul>
+            <li>첫번째 항목</li>
+            <ul>
+                <li>첫번째 하위 항목</li>
+            </ul>
+            <li>두번째 항목</li>
+            <li>세번째 항목</li>
+            <ul>
+                <li>세번째 하위 항목</li>
+            </ul>
+           </ul>
+
+           <ol>
+            <li>첫번째 항목</li>
+            <li>두번째 항목</li>
+            <li>세번째 항목</li>
+           </ol>
+           <dl>
+            <dt>HTML</dt>
+            <dd>HyperText Markup Language</dd>
+            <dt>CSS</dt>
+            <dd>Cascanding Style Sheets</dd>
+            <dt>JavaScript</dt>
+            <dd>웹 페이지에 동적인 기능을 추가하는 스크립트 언어</dd>
+           </dl>
+           <!-- 6./목록 만들기 -->
+
+           <!-- 7. 테이블 만들기 -->
+            <table border="1">
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>직업</th>
+                </tr>
+                <tr>
+                    <td>홍길동</td>
+                    <td>30</td>
+                    <td>개발자</td>
+                </tr>
+            </table>
+            <br>
+            <table border="1">
+                <tr>
+                    <th rowspan="2">이름</th>
+                    <th colspan="3">성적</th>
+                </tr>
+                <tr>
+                    <th>수학</th>
+                    <th>영어</th>
+                    <th>국어</th>
+                </tr>
+                <tr>
+                    <td>홍길동</td>
+                    <td>90</td>
+                    <td>85</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>김철수</td>
+                    <td>95</td>
+                    <td>93</td>
+                    <td>87</td>
+                </tr>
+            </table>
+            <!-- 7./테이블 만들기 -->
+             <br><br>
+             <!-- 8. 폼 만들기 -->
+              <form action="http://192.168.0.168/0620/register.php" method="get">
+                이름: <input type="text" name="name"><br>
+                이메일: <input type="email" name="email"><br>
+                메시지: <br>
+                <textarea id="message" name="message" rows="4"
+                cols="50"></textarea><br>
+                <input type="submit" value="제출">
+                <button onclick="alert('제출되었습니다.')">보내기</button>
+                <input type="button" value="보내기2" onclick="alert('제출되었을까요?')">
+                <input type="reset" value="초기화">
+              </form>
+              <!-- 8./폼 만들기 -->
+              <br><br>
+              <!-- 9.버튼과 이벤트 -->
+
+              <input type="button" value="클릭하세요1" onclick="alert('버튼이 클릭되었습니다1!')"><br>
+
+              <button onclick="alert('버튼이 클릭되었습니다2!')">클릭하세요2</button><br>
+
+              <button onclick="location.href='002.html'">문서 이동</button><br>
+
+              <button onclick="if(confirm('문서로 이동하시겠습니까?')) {location.href='002.html';}else{location.href='https://naver.com';}">문서 이동 선택</button><br>
+              <!-- 9./버튼과 이벤트 -->
+               <br><br>
+
+              <!-- 10. 레이아웃: div,span -->
+               <div id="divtag" style="background-color: lightblue; padding: 10px;">
+                <h2>이것은 div 태그입니다.</h2>
+                <p>div태그는 블록 레벨 요소로, 주로 레이아웃을 구성하는 데 사용됩니다.</p>
+                <p>이것은 <span style="color: red;">span</span>태그입니다.</span>
+                span태그는 인라인 요소로, 텍스트의 일부를 스타일링하는 데 사용됩니다.</p>
+               </div>
+               <!-- 10. / 레이아웃: div span-->
+
+               <!-- <button type="button" onclick="location.href='my home'">제목으로</button> -->
+    </body>
+</html>
+
+<!-- 1. /기본 HTML 구조 -->

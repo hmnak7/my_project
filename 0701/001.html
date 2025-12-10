@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child vs nth-of-type Example</title>
+    <style>
+        /* nth-child: 모든 요소 중에서 3번째 요소 선택 */
+        li:nth-child(5) {
+            color: blue; /* Item 2에 적용됨 */
+        }
+
+        /* nth-of-type: li 요소 중에서 3번째 li 요소 선택 */
+        li:nth-of-type(3) {
+            color: red; /* Item 3에 적용됨 */
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Item 1</li>
+        <span>Not a list item</span>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+</body>
+</html>

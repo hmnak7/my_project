@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HTML 문서</title>
+    <script src="../myfunc.js"></script>   
+</head>
+<body>
+    <script>
+        /* 문자열 객체 속성 및 메소드*/
+        
+        /*length: 문자열 길이*/
+        // let strl = "Hello, world!!!";
+        // cprint(strl.length);
+        // let str2 = "한글 사랑";
+        // cprint(str2.length);
+        // let str3 = "";
+        // cprint(str3.length);
+
+        /* includes: 포함 여부*/
+        // let strl = "Hello, world!!!";
+        // cprint(strl.includes("world"));
+        // cprint(strl.includes("Hello",1));
+
+        /* startsWith: 특정 문자열로 시작하는지 여부 */
+        // let str = "안녕하세요, 자바스크립트!";
+        // cprint(str.startsWith("안녕하세요"));
+
+        /* endsWith: 특정 문자열로 끝나는지 여부 */
+        // let strl = "안녕하세요, 자바스크립트!";
+        // cprint(strl.endsWith("안녕하세요"));
+
+        /* replace: 치환(첫번재 일치 문자열만) */ 
+        // let str = "Hello, World! World!";
+        // cprint(str);
+        // let newStr = str.replace("World", "JavaScript");
+        // cprint(newStr);
+
+        /* replaceAll: 치환(일치되는 모든 문자열 대상) */ 
+        // let str = "Hello, World! World!";
+        // cprint(str);
+        // let newStr = str.replaceAll("World", "JavaScript");
+        // cprint(newStr);
+
+        /* split: 구분자를 기준으로 나누기*/
+        // const str = "apple, banana, banana, cherry";
+        // cprint(str);
+        // const fruits = str.split(",");
+        // cprint(fruits);
+        // //cprint(fruits, fruits[1])
+
+        /* join: 배열 원소를 특정 구분자로 합쳐서 문자열 만들기*/
+        // const result = fruits.join("-");
+        // cprint(result);
+
+        /* toUpperCase, toLowerCase : 대문자로 변환, 소문자로 변환*/
+        // const strl = "JavaScript";
+        // cprint(strl.toUpperCase());
+        // cprint(strl.toLowerCase());
+
+        /* trim: 문자열 양쪽 공백 제거(특수기호 포함: \r, \n, \t)*/
+        // const str = "    Hello, World!   ";
+        // cprint(str);
+        // cprint(str.trim());
+        // cprint(str.replaceAll(" ", ""));
+
+        // const str2 = "\tJavaScript\n";
+        // cprint(str2);
+        // cprint(str2.trim());
+
+        // const str3 = "Name\tAge";
+        // cprint(str3);
+        // cprint(str3.trim());
+
+        /* indexOf : 포함된 문자열의 위치를 인덱스로 반환 */
+        // const str = "Hello, World!";
+        // cprint(str.indexOf("World"));
+        // cprint(str.indexOf("World", 8));
+
+        /* slice: 시작인덱스부터 끝인덱스 바로 앞까지 문자열 추출하여 반환 */
+        // const str = "Hello, World!";
+        // const part1 = str.slice(0, 5);
+        // cprint(part1);
+        // const part2 = str.slice(7);
+        // cprint(part2);
+
+        /* concat: 문자열 합치기 */
+        // const str1 = "Hello, ";
+        // const str2 = "JabvaScript!";
+        // const result = str1.concat(str2);
+        // cprint(result);
+
+        /* 간단 예제*/AnimationTimeline
+        const pw = "123";
+        if(pw.length < 4){
+            cprint("최소 4자리 이상 입력해주세요.");
+        }else {
+            cprint("어서오세요");
+        }
+
+        const email = "test!naver.com";
+        // if(email.includes("@") === false){
+        // if(!email.includes("@")){
+        if(email.indexOf("@") < 0){
+            cprint("올바르지 않은 형식입니다.")
+        } else{
+            cprint("올바른 형식입니다.")
+        }
+
+    </script>
+</body>
+</html>

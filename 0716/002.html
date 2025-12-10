@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #888;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../myfunc.js"></script>
+    <script>
+        $(function(){
+            
+            //$.ajax("주소"[,옵션]);
+
+            $.ajax({
+                url: "sample2.html",
+                type: "GET",
+                dataType: "html",
+                data: {do: 'read', name: '홍길동', age: 20},
+                success: function(info) {
+                    $("#result").html(info);
+                },
+                error: function() {
+                    cprint("요청 실패");
+                },
+                complete: function() {
+                    cprint("요청 완료");
+                }
+            });
+
+            /*$.ajax("sample2.html")
+            .done(function(info) {
+                alert("요청 성공");
+                $("#result").html(info);
+            })
+            .fail(function() {
+                alert("요청 실패");
+            })
+            .always(function() {
+                alert("요청 완료");
+            });*/
+
+
+            /*$.get("sample2.html",
+            "do=read&name=홍길동&age=20",
+            function(info){
+                $("#result").html(info);
+            });*/
+
+            // $.post("http://192.168.0.169/sample2.php",
+            // "do=read&name=홍길동&age=20",
+            // function(info){
+            //     $("#result2").html(info);
+            // });
+
+            $.ajax({
+                url: "http://192.168.0.169/sample2.php",
+                type: "POST",
+                dataType: "html",
+                data: {do: 'read', name: 'BTS', age: 20},
+                success: function(info) {
+                    $("#result2").html(info);
+                },
+                error: function() {
+                    cprint("요청 실패");
+                },
+                complete: function() {
+                    cprint("요청 완료");
+                }
+            });
+
+            // $.post("http://192.168.0.169:5000",
+            // {do:'update', name:"김유신", age:45},
+            // function(info){
+            //     $("#result3").html(info);
+            // });
+
+            $.ajax({
+                url: "http://192.168.0.169:5000",
+                type: "POST",
+                dataType: "html",
+                data: {do:'update', name:"슈가", age:23},
+                success: function(info) {
+                    $("#result3").html(info);
+                },
+                error: function() {
+                    cprint("요청 실패");
+                },
+                complete: function() {
+                    cprint("요청 완료");
+                }
+            });
+
+            $("#result4").load("sample2.html");
+
+        });
+    </script>
+</head>
+<body>
+    <h1>$.ajax() 메소드</h1>
+    <h3>형식: $.ajax({url:,type:,dataType:,data:, success(), error(), comlete()});</h3>
+    
+    <div id="result">
+        <p style="text-align:center;">            
+        <img src="loading.gif" width="300" alt="로딩중" />
+        </p>
+    </div>   
+    <div id="result2">
+        <p style="text-align:center;">            
+        <img src="loading.gif" width="300" alt="로딩중" />
+        </p>
+    </div> 
+    <div id="result3">
+        <p style="text-align:center;">            
+        <img src="loading.gif" width="300" alt="로딩중" />
+        </p>
+    </div> 
+    <div id="result4">
+        <p style="text-align:center;">            
+        <img src="loading.gif" width="300" alt="로딩중" />
+        </p>
+    </div> 
+</body>
+</html>

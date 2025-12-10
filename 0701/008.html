@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = '10';
+        document.write(typeof x + "<br>");
+
+        switch(typeof x){
+            case "number":
+                document.write("숫자입니다.");
+                break;
+            case "string":
+                document.write("문자입니다.");
+                break;
+            case "object":
+                document.write("객체입니다.");
+                break;
+            default:
+                document.write("누구신지?");
+                break;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function formatNumberWithCommas(number) {
+            return new Intl.NumberFormat("ko-KR").format(number);
+        }
+        function convertCurrency() {
+            let amount = document.getElementById("amount").value;
+            let currency = document.getElementById("currency").value;
+            let conversionResult = document.getElementById("conversionResult");
+
+            console.log(amount,currency);
+
+            let lastAmount;
+            
+            /*if (currency == 'usd'){
+                lastAmount = amount * (0.73 / 1000);
+            }else if (currency == 'eur'){
+                lastAmount = amount * (0.62 / 1000);
+            }else if (currency == 'jpy'){
+                lastAmount = amount * (105.43 / 1000);
+            }else if (currency == 'cny'){
+                lastAmount = amount * (5.26 / 1000);
+            }*/
+
+
+            // switch(currency) {
+            //     case 'usd':
+            //         lastAmount = amount * (0.73 / 1000);
+            //         break;
+            //     case 'eur':
+            //         lastAmount = amount * (0.62 / 1000);
+            //         break;
+            //     case 'jpy':
+            //         lastAmount = amount * (105.43 / 1000);
+            //         break;
+            //     case 'cnh':
+            //         lastAmount = amount * (5.26 / 1000);
+            //         break;
+            //     default:
+            //         lastAmount = 0;
+            // }
+
+            const exchangeRates = {
+                usd:0.73,
+                eur:0.62,
+                jpy:105.43,
+                cnh:5.26
+            };
+            lastAmount = amount * (exchangeRates[currency]/1000);
+
+           conversionResult.textContent = formatNumberWithCommas.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>환율 계산기</h1>
+    <input type="number" id = "amount" placeholder="한국 원화 입력" />
+    <select id="currency">
+        <option value="usd"> USD (미국 달러)</option>
+        <option value="eur"> EUR (유로)</option>
+        <option value="jpy"> JPY (일본 엔)</option>
+        <option value="cnh"> CNH (중국 위안)</option>
+    </select>
+    <button onclick="convertCurrency()">환전하기</button>
+    <p id="conversionResult"></p>
+
+</body>
+</html>

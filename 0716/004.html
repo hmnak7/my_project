@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨 정보 앱</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../myfunc.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #weather {
+            margin-top: 20px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h1>날씨 정보</h1>
+    <select id="city">
+        <option value="Seoul">서울</option>
+        <option value="Busan">부산</option>
+        <option value="Incheon">인천</option>
+        <option value="Daegu">대구</option>
+        <option value="Gwangju">광주</option>
+        <option value="Daejeon">대전</option>
+        <option value="London">런던</option>
+        <option value="Beijing">베이징</option>
+        <option value="Singapore">싱가포르</option>
+        <option value="Los Angeles">LA</option>
+    </select>
+    <button id="getWeather">날씨 조회</button>
+    <div id="weather"></div>
+    <script>
+        $('#getWeather').on('click', function(){
+            const city = $('#city').val();
+            const latlon = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=7d9e3e221de5a006c99b58adbfcf74d8`;
+            
+            //${apikey}`;
+
+            $.get(latlon, function(info){
+                //cprint(info);
+                console.log(info);
+                //info[0].lat
+                //info[0].lon
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${info[0].lat}&lon=${info[0].lon}&appid=7d9e3e221de5a006c99b58adbfcf74d8&lang=kr`;
+
+                $.get(url, function(data){
+                    cprint(data);
+                    const weatherDesCription = data.weather[0].description;
+                    const temperature = data.main.temp - 273.15; //캘빈을 섭씨로 변화
+                    const humidity = data.main.humidity;
+                    const windSpeed = data.wind.speed;
+
+                    const weatherHtml = `
+                    <h2>${city}의 날씨</h2>
+                    <p>날씨: ${weatherDesCription}</p>
+                    <p>온도: ${temperature.toFixed(2)} ºC</p>
+                    <p>습도: ${humidity}%</p>
+                    <p>바람 속도: ${windSpeed} m/s</p>
+                    `;
+
+                    $('#weather').html(weatherHtml);
+                })
+            });
+        });
+
+    </script>
+</body>
+</html>

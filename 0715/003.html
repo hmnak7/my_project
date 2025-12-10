@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자손요소 선택</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .container {
+            border: 2px solid #000;
+            padding: 20px;
+            margin: 10px;
+        }
+        .child, .child2 {
+            border: 1px solid #00f;
+            padding: 10px;
+            margin: 5px;
+        }
+        .highlight {
+            background-color: #ffcc00;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="child" id="parent1">
+        Parent 1
+        <div class="child" id="child1">Child 1</div>
+        <div class="child" id="child2">Child 2</div>
+    </div>
+    <div class="child" id="parent2">
+        Parent 2
+        <div class="child" id="child3">Child 3</div>
+        <div class="child" id="child4">Child 4</div>
+        <div class="child2" id="child4">Child 4</div>
+    </div>
+</div>
+
+<button id="btnChildren">Children</button>
+<button id="btnFind">Find</button>
+<button id="btnFind2">Find2</button>
+
+<script>
+    $(document).ready(function() {
+        $("#btnChildren").click(function() {
+            // 직계 자식
+            // $("#parent1").children().toggleClass("highlight");
+            $(".container").children().toggleClass("highlight");
+        });
+
+        $("#btnFind").click(function() {
+            // 자손 요소
+            $(".container").find("*").toggleClass("highlight");
+            // $(".container").find(".child").toggleClass("highlight");
+        });
+
+        $("#btnFind2").click(function() {
+            $(".container").find("div#child3").toggleClass("highlight");
+        });
+    });
+</script>
+
+</body>
+</html>

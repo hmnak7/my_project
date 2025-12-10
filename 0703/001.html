@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <h2>할일 목록 추가하기</h2>
+    <!-- 
+    1) input 태그 추가
+    2) fuction 추가
+    3) button 클릭시 동작 -> (함수호출): 함수(기능 묶음)
+    4) input에 입력된 글자를 화면 아래에 출력(추가)
+    5) input 에는 글자를 입력해야 되는구나
+    6) 함수호출(클릭시) 함수 호출 -> 기능 실행
+    7) input에 입력된 글자를 가져오자
+    8) 글자가 표시된 자리를 만들자(목록으로 표시) : ul, li
+    9) innerHTML(HTML), getElementById
+    10) getElementById("todolist").innerHTML
+
+    # var a = document.getElementById("todolist").innerHTML;
+    # document.getElementById("todolist").innerHTML = '<li>공부</li>';
+
+    # document.getElementById("todolist").innerHTML; = document.getElementById("todolist").innerHTML; + '<li>공부</li>';
+    -->
+    <input type="text" id="mytodo" value=""/>
+    <button onclick="addtodo()">추가</button>
+    <ul id="todolist">
+        <li>공부하기</li>
+        <li>청소하기</li>
+    </ul>
+    <script>
+        function addtodo() {
+            //alert("아아 마이크 실행!!!")
+            let inptVal = document.getElementById("mytodo").value;
+
+            var a = document.getElementById("todolist").innerHTML;
+
+            // console.log(document.getElementById("todolist").innerHTML);
+            // console.log(a);
+
+            // document.getElementById("todolist").innerHTML = '<p>나야 나!</p>';
+
+            // document.getElementById("todolist").innerHTML = `<li>${inptVal}</li>`;
+
+            document.getElementById("todolist").innerHTML = a + `<li>${inptVal}</li>`;
+
+            //document.getElementById("todolist").innerHTML += `<li>${inptVal}</li>`;
+        }
+    </script>    
+</body>
+</html>

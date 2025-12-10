@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    1부터 10까지의 숫자를 리스트로 표시하기
+     -->
+    <ul id = "numberList"></ul>
+    <script>
+        var fruit = ['사과', '배', '복숭아', '수박', '참외', '메론'];
+
+        var doc = "";
+
+        //for(let i = 1; i <= 10; i++){
+
+        var number = document.getElementById("numberList");
+
+        for(let i = 0; i < fruit.length; i ++){
+            //number.innerHTML += `<li>${fruit[i]}</li>`
+            // number.innerHTML = number.innerHTML + `<li>${fruit[i]}</li>`;
+            number.innerHTML = number.innerHTML + "<li>" + fruit[i]+"</li>"
+        }
+
+
+         /*
+        document.write(`<b>${i+1}번째 doc: </b><br>`);
+
+        doc += `<li>${fruit[i]}</li>`;
+
+        document.write(doc + "<br>");
+        }
+        */
+
+
+    </script>
+</body>
+</html>

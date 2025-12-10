@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 입력 서식</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center; /* 수직(상하) 가운데 정렬 */
+            /*justify-content: center;*/ /* 수평(좌우) 중앙 정렬 */
+            gap: 10px; /* 체크박스와 레이블 사이 간격 */
+        }
+        input, select, textarea {
+            padding: 8px;
+            font-size: 16px;
+        }
+        input[type="color"] {
+            /*width: 100px;*/ /* 너비 조정 */
+            /*border: none;*/ /* 테두리 제거 */
+            padding: 0; /* 패딩 추가 */
+        }
+        input[type="range"] {
+            width: 500px; /* 슬라이더 너비를 500px로 설정 */
+        }
+        .range-container {
+            display: flex;            
+            align-items: center; /* 수직 중앙 정렬 */
+        }
+        .range-value {
+            margin-left: 10px; /* 수치와 슬라이더 사이 간격 */
+        }
+    </style>
+</head>
+<body>
+
+<h1>문서 입력 서식</h1>
+<form action="register.php" method="post" enctype="multipart/form-data">
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">이메일:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">비밀번호:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="age">나이:</label>
+    <input type="number" id="age" name="age" min="1" max="120">
+
+    <label for="gender">성별:</label>
+    <select id="gender" name="gender">
+        <option value="male">남성</option>
+        <option value="female">여성</option>
+        <option value="other">기타</option>
+    </select>
+
+    <label for="birthdate">생년월일:</label>
+    <input type="date" id="birthdate" name="birthdate">
+
+    <label for="phone">전화번호:</label>
+    <input type="tel" id="phone" name="phone">
+
+    <label for="address">주소:</label>
+    <textarea id="address" name="address" rows="4"></textarea>
+
+    <label for="file">파일 첨부:</label>
+    <input type="file" id="file" name="attach">
+
+    <label>취미:</label>
+    <div class="checkbox-group">
+        <input type="checkbox" id="hobby1" name="hobby[]" value="reading">
+        <label for="hobby1">독서</label>
+    </div>
+    <div class="checkbox-group">
+        <input type="checkbox" id="hobby2" name="hobby[]" value="sports">
+        <label for="hobby2">운동</label>
+    </div>
+    <div class="checkbox-group">
+        <input type="checkbox" id="hobby3" name="hobby[]" value="music">
+        <label for="hobby3">음악 감상</label>
+    </div>
+
+    <label>뉴스레터 수신:</label>
+    <div class="checkbox-group">
+        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+        <label for="newsletter">수신 동의</label>
+    </div>
+
+    <label for="website">웹사이트:</label>
+    <input type="url" id="website" name="website">
+
+    <label for="color">선호 색상:</label>
+    <input type="color" id="color" name="color" value="#000000">
+
+    <label for="range">범위 선택:</label>
+    <div class="range-container">
+        <input type="range" id="range" name="range" min="1" max="100" value="50">
+        <span class="range-value" id="rangeValue">50</span> <!-- 초기 값 표시 -->
+    </div>
+
+    <label for="time">시간 선택:</label>
+    <input type="time" id="time" name="time">
+
+    <label for="month">월 선택:</label>
+    <input type="month" id="month" name="month">
+
+    <label for="search">검색:</label>
+    <input type="search" id="search" name="search">
+
+    <button type="submit">제출</button>
+</form>
+
+<script>
+    const rangeInput = document.getElementById('range');
+    const rangeValue = document.getElementById('rangeValue');
+
+    // 범위 값 변경 시 이벤트 리스너
+    rangeInput.addEventListener('input', function() {
+        rangeValue.textContent = rangeInput.value; // 현재 값을 업데이트
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    페이지의 모든 <p> 요소를 선택하고, 각 요소의 텍스트를 "변경된 텍스트"로 바꿉니다
+    -->
+    <p>첫 번째 문단</p>
+    <p>두 번째 문단</p>
+    <p>세 번째 문단</p>
+
+    <!--
+    페이지의 모든 <a> 요소를 선택하고, 각 링크의 배경색을 노란색으로 변경합니다.
+    -->
+    <a href="https://www.example1.com">첫 번째 링크</a><br>
+    <a href="https://www.example2.com">두 번째 링크</a><br>
+    <a href="https://www.example3.com">세 번째 링크</a><br>
+    <a href="https://www.example4.com">네 번째 링크</a><br>
+    <a href="https://www.example5.com">다섯 번째 링크</a><br>
+    <a href="https://www.example6.com">여섯 번째 링크</a><br>
+    <a href="https://www.example7.com">일곱 번째 링크</a><br>
+
+  
+
+    <!--
+    클래스 이름이 hidden인 모든 요소를 선택하고, 해당 요소들을 숨깁니다.
+    -->
+    <div class="hidden"># 숨길 첫 번째 요소</div>
+    <div class="hidden"># 숨길 두 번째 요소</div>
+    <div>@ 숨기지 않을 요소</div>
+    <div class="hidden"># 숨길 세 번째 요소</div>
+    <button id = "magic">마술사</button>
+
+
+  
+    <script>
+       
+        var ele1 = document.querySelectorAll("p");
+        // for(let e of ele1){
+        //     e.textContent = "변경된 텍스트";
+        // }
+
+        for (let i = 0; i < ele1.length; i++)
+            if(i==1){
+            ele1[i].textContent = (i+1)+")변경된 텍스트에요";
+        }
+
+        var ele2 = document.querySelectorAll("a");
+
+        //  for(let e of ele2){
+        //     e.style.backgroundColor = "yellow";
+        //  }
+
+       // var col = ["yellow", "light blue", "green"];
+        var col = "#ddd";
+        for (let i = 0; i < ele2.length; i++){
+            // ele2[i].style.backgroundColor = col[i];
+            if(i % 2 == 0)
+            ele2[i].style.backgroundColor = col;
+        }
+
+        // var ele3 = document.querySelectorAll("div.hidden");
+
+        // for (let e of ele3){
+        //     e.style.display = "none";
+        // }
+
+        var ele3 = document.querySelectorAll("div");
+        var ele4 = document.querySelector("#magic");
+
+        ele4.addEventListener("click", function(){
+
+            // ele4.classList.toggle("hidden");
+            for(let e of ele3){
+            // ele3.classList.add("hidden");
+            // ele3.classList.remove("hidden");
+            e.classList.toggle("hidden");
+            }
+        });
+    </script>
+    
+</body>
+</html>

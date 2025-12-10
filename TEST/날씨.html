@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>날씨 정보 앱</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 50px;
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 8px;
+      width: 200px;
+    }
+    button {
+      padding: 8px 16px;
+    }
+    #weather {
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🌦️ 날씨 정보 앱</h2>
+  <input type="text" id="city" placeholder="도시를 입력하세요">
+  <button id="getWeather">날씨 조회</button>
+
+  <div id="weather"></div>
+
+  <script>
+    const apiKey = "7d9e3e221de5a006c99b58adbfcf74d8"; // 🔑 OpenWeatherMap API 키 입력
+
+    $("#getWeather").click(function () {
+      const city = $("#city").val().trim();
+      if (city === "") {
+        alert("도시 이름을 입력하세요.");
+        return;
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`;
+
+      $.getJSON(url, function (data) {
+        const weather = data.weather[0].description;
+        const temp = data.main.temp;
+        const humidity = data.main.humidity;
+
+        $("#weather").html(`
+          <p>🌍 도시: <strong>${city}</strong></p>
+          <p>🌤️ 날씨: ${weather}</p>
+          <p>🌡️ 기온: ${temp}℃</p>
+          <p>💧 습도: ${humidity}%</p>
+        `);
+      }).fail(function () {
+        $("#weather").html("<p style='color:red;'>도시를 찾을 수 없습니다. 정확히 입력해주세요.</p>");
+      });
+    });
+  </script>
+
+</body>
+</html>

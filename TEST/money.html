@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>비용 관리 앱</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 40px;
+      max-width: 600px;
+    }
+    input, select, button {
+      padding: 8px;
+      margin: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .delete-btn {
+      color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💰 비용 관리 앱</h2>
+
+  <div>
+    <input type="text" id="desc" placeholder="지출 설명">
+    <input type="number" id="amount" placeholder="금액">
+    <select id="category">
+      <option value="식비">🍔 식비</option>
+      <option value="교통">🚌 교통</option>
+      <option value="쇼핑">🛍️ 쇼핑</option>
+      <option value="기타">📦 기타</option>
+    </select>
+    <button id="addBtn">추가</button>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <label>카테고리 보기: </label>
+    <select id="filter">
+      <option value="전체">전체</option>
+      <option value="식비">식비</option>
+      <option value="교통">교통</option>
+      <option value="쇼핑">쇼핑</option>
+      <option value="기타">기타</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>설명</th>
+        <th>금액</th>
+        <th>카테고리</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+    <tbody id="expenseList">
+      <!-- 항목이 여기에 표시됨 -->
+    </tbody>
+  </table>
+
+  <script>
+    let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+    function renderList() {
+      const filter = $("#filter").val();
+      const $list = $("#expenseList");
+      $list.empty();
+
+      expenses.forEach((item, index) => {
+        if (filter === "전체" || filter === item.category) {
+          $list.append(`
+            <tr>
+              <td>${item.desc}</td>
+              <td>${item.amount} 원</td>
+              <td>${item.category}</td>
+              <td><span class="delete-btn" data-index="${index}">삭제</span></td>
+            </tr>
+          `);
+        }
+      });
+    }
+
+    function saveExpenses() {
+      localStorage.setItem("expenses", JSON.stringify(expenses));
+    }
+
+    $(document).ready(function () {
+      renderList();
+
+      $("#addBtn").click(function () {
+        const desc = $("#desc").val().trim();
+        const amount = parseInt($("#amount").val());
+        const category = $("#category").val();
+
+        if (!desc || isNaN(amount)) {
+          alert("설명과 금액을 입력해주세요.");
+          return;
+        }
+
+        expenses.push({ desc, amount, category });
+        saveExpenses();
+        renderList();
+
+        $("#desc").val("");
+        $("#amount").val("");
+      });
+
+      $("#expenseList").on("click", ".delete-btn", function () {
+        const index = $(this).data("index");
+        expenses.splice(index, 1);
+        saveExpenses();
+        renderList();
+      });
+
+      $("#filter").change(function () {
+        renderList();
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>수학 문제 채점기</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2>수학 문제 채점기</h2>
+
+  <ol>
+    <li>2 + 3 = ? <input type="text" id="q1"></li>
+    <li>4 - 1 = ? <input type="text" id="q2"></li>
+    <li>6 × 2 = ? <input type="text" id="q3"></li>
+    <li>8 ÷ 4 = ? <input type="text" id="q4"></li>
+    <li>5 + 5 = ? <input type="text" id="q5"></li>
+    <li>9 - 6 = ? <input type="text" id="q6"></li>
+    <li>3 × 3 = ? <input type="text" id="q7"></li>
+    <li>10 ÷ 2 = ? <input type="text" id="q8"></li>
+    <li>9 + 2 = ? <input type="text" id="q9"></li>
+    <li>12 - 4 = ? <input type="text" id="q10"></li>
+  </ol>
+
+  <button id="checkBtn">채점하기</button>
+  <p id="result"></p>
+
+  <script>
+    $(document).ready(function () {
+      const answers = [5, 3, 12, 2, 10, 3, 9, 5, 11, 8];
+
+      $("#checkBtn").click(function () {
+        let score = 0;
+
+        for (let i = 1; i <= 10; i++) {
+          const $input = $("#q" + i);
+          const userAnswer = parseInt($input.val(), 10);
+
+          if (userAnswer === answers[i - 1]) {
+            score++;
+            $input.css("color", "green");
+          } else {
+            $input.css("color", "red");
+          }
+        }
+
+        $("#result").text(`정답 수: ${score} / 10`);
+      });
+    });
+  </script>
+</body>
+</html>

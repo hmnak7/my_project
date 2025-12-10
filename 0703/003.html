@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <div id="myDiv">Hello, World!</div>
+    <script>
+        const element = document.getElementById('myDiv');
+        console.log(element.textContent);
+    </script>
+
+    <div class="myClass">홍길동</div>
+    <div class="myClass">이순신</div>
+    <div class="myClass">유관순</div>
+    <script>
+        const elements = document.getElementsByClassName("myClass");
+
+        for(let i = 0; i < elements.length; i++){
+            console.log(elements[i].textContent);
+        }
+    </script>
+
+    <h2>첫 번째 제목</h2>
+    <h2>두 번째 제목</h2>
+    <h2>세 번째 제목</h2>
+    <script>
+        const elements2= document.getElementsByTagName("h2");
+         for(let i = 0; i < elements2.length; i++){
+            console.log(elements2[i].textContent);
+        }
+
+    </script>
+
+    <a href="https://www.example1.com">첫 번째 링크</a>
+    <a href="https://www.example2.com">두 번째 링크</a>
+    <a href="https://www.example3.com">세 번째 링크</a>
+    <script>
+        const elements3 = document.getElementsByTagName("a");
+        for(let i = 0; i < elements3.length; i++){
+            console.log(elements3[i].href);
+        }
+    </script>
+
+     <script>
+      const element2 = document.querySelector('.myClass');
+        console.log(element2.innerText);
+
+        const elements4 = document.querySelectorAll('.myClass');
+        for(let i = 0; i < elements4.length; i++){
+            console.log(elements4[i].textContent);
+        }
+        //공유 폴더에 같은 내용. 참고하기.
+        const elements5 = document.querySelectorAll('a');
+        
+        for(let i=0; i < elements5.length; i++){
+            console.log(elements5[i].href);
+        }
+
+        elements5.forEach(function(ele){
+            console.log(ele.href);
+        });
+
+        elements5.forEach(ele => {
+            console.log(ele.href);
+        });
+
+        for(let ele of elements5){
+            console.log(ele.href);
+        }
+
+    </script>
+
+</body>
+</html>

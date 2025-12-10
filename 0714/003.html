@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 선택자 필터링 예제</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        div {
+            height: 30px;
+            margin: 5px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        $(function(){
+            
+            /* :eq(n) - n=index*/
+            // $("div:eq(3)").css("background-color","lightblue");
+
+            /* :gt(n) - n보다 큰 인덱스*/
+            // $("div:gt(4)").css("background-color","lightgreen");
+
+            /* :lt(n) - n보다 직은 인덱스*/
+            //$("div:lt(3)").css("background-color","lightcoral");
+
+            /* even : 짝수 인덱스 선택*/
+            //$("div:even").css("background-color","lightyellow");
+
+            /* odd : 홀수 인덱스 선택*/
+            // $("div:odd").css("background-color","lightpink");
+
+            /* :first : 첫 번째 요소 선택*/
+            //$("div:first").css("background-color","lightgray");
+
+            /* :last : 마지막 요소 선택*/
+            // $("div:last").css("background-color","lightpink");
+
+            /* not(selector) - 선택지에 해당하지 않는 요소 선택*/
+            // $("div:not(first)").css("background-color","lightgoldenrodyellow");
+
+            /* :has(selector) - 특정 자식 요소를 가진 요소 선택 */
+            // $("div:has(span)").css("background-color","lightseagreen");
+
+            /* :contains(text) - 특정 텍스트를 포함하는 요소 선택 */
+            // $("div:contains('Item')").css("background-color","lightcoral");
+
+            /* :empty - 자식 요소가 없는 요소 선택 (빈칸도 없어야 함) */
+            // $("div:empty").css("background-color","lightpink");
+
+            /* :parent - 자식 요소가 있는 요소 선택 (빈칸이 있어야 함) */
+            $("div:parent").css("background-color","lightblue");
+
+        })
+    </script>
+</head>
+<body>
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+    <div>Item 4</div>
+    <div>Item 5</div>
+    <div>Item 6</div>
+    <div><span>Item 7</span></div>
+    <div id="empty"></div>
+    <div id="empty2"> </div>
+</body>
+</html>

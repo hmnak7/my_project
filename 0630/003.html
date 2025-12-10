@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Apply</title>
+    <script>
+        /* 상수 */
+        const y = 3;
+        const PI = 3.14; //원주율
+
+        /* 변수 */
+        var n = 1;
+
+        let num = 10;
+        let interger = 20; // 정수
+        let float = 2.15; // 실수
+
+        // 문자열
+        let firstStr = "안녕하세요";
+        let SecondStr = '안녕하세요';
+        let ThirdStr = `안녕하세요`;
+
+        let ForthStr = "내 이름은 '홍길동'입니다.";
+        let FifthStr = '내 이름은 "홍길동"입니다.';
+
+        let SixthStr = "내 이름은 \"홍길동\"입니다.";
+        console.log(SixthStr);
+
+        let strs = firstStr + ". " + ForthStr;
+        console.log(strs);
+
+        let strs2 = `${firstStr}~~~ ${ForthStr}ㅎㅎㅎ`;
+        console.log(strs2);
+
+        /*숫자 + 문자열 = 문자열*/
+        let vars = num + firstStr;
+        console.log(vars);
+
+        let vars2 = num + interger;
+        console.log(vars2);
+
+        let oneNum = 1;
+        let twoNum = 2;
+
+    
+        window.onload = function() {
+            document.getElementById("str").innerHTML = " strs2 : "+ strs2;
+
+            document.getElementById("result").innerHTML = "vars2 : "+ vars2;
+
+            // document.getElementById("result2").innerHTML = (oneNum + twoNum) * 2;
+
+            /* 불리언/불린 */
+            document.getElementById("result2").innerHTML = "oneNum == twoNum :"+ (oneNum == twoNum);
+
+            /*변수 타입*/
+            document.getElementById("result3").innerHTML = "10의 자료형: "+ (typeof 10) + "<br>";
+            document.getElementById("result3").innerHTML += "문자열의 자료형 : "+ (typeof "문자열") + "<br>";
+            document.getElementById("result3").innerHTML += "vars의 자료형 : "+ (typeof vars) + "<br>";
+        }
+    </script>
+</head>
+<body>
+    <p id="str"></p>
+    <p id="result"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+</body>
+</html>

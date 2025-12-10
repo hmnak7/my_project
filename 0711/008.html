@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="../myfunc.js"></script>
+</head>
+<body>
+    <button onclick="popup()">팝업</button>
+    <script>
+        function popup(){
+            
+            let newWin = window.open('popup2.html', 'aaa2', 'left=0, top=0, width=500, height =300');
+
+            if(newWin == null){
+                alert("팝업이 차단되어 있습니다. 팝업 차단을 해제해 주세요.");
+            }
+
+            /*
+            window.open('popup.html', 'aaa', 'left=0, top=400, width=500, height =300');
+
+            window.open('popup2.html', 'aaa2', 'left=0, top=400, width=500, height =300');
+            */
+        }
+    </script>
+</body>
+</html>

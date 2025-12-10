@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동 이미지 변경 예제</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(function() {
+        let myTimer;
+        let images = [
+            "../img/001.jpg",
+            "../img/002.jpg",
+            "../img/003.jpg"
+        ];
+        let second = 0; 
+
+        function startTimer() {
+            stopTimer();
+
+            myTimer = setInterval(function() {
+                $("img[alt='kakao']").attr({"src": images[second], "width": "500"});
+                second++;
+                if (second >= images.length) {
+                    second = 0;
+                }
+            }, 1000); 
+        }
+
+        function stopTimer() {
+            clearInterval(myTimer);
+        }
+
+        $("#startButton").on("click", startTimer);
+        $("#stopButton").on("click", stopTimer);
+    });
+    </script>
+</head>
+<body>
+    <img alt="kakao" src="../img/001.jpg" width="500"/><br>
+    <button id="startButton">시작</button>
+    <button id="stopButton">멈춤</button>
+</body>
+</html>

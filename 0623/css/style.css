@@ -1,0 +1,14 @@
+h1 {
+        background-color: rgb(253, 129, 35);
+
+        color: white;
+        text-align:center
+    }
+    .hotline {
+        color: #fd2f2f
+    }
+
+    li {
+        /*list-style-type: square;*/
+        list-style-image: url(../images/arrow.png);
+    }

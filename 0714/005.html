@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../myfunc.js"></script>
+    <script>
+       $(function(){
+            $("button").on("click", function(){
+ 
+                // $("#list").append("<li>새로 추가된 아이템이에요!</li>");
+                // $("<li>새로 추가된 아이템이에요!</li>").appendTo("#list");
+
+                // $("#list").prepend("<li>새로 추가된 아이템이에요!</li>");
+                // $("<li>새로 추가된 아이템이에요!</li>").prependTo("#list");
+ 
+                /*이동*/
+                //$("li:eq(0)").appendTo("#list");
+
+                /* 복사 */
+                $("li:eq(0)").clone().appendTo("#list");
+
+            });
+       });
+    </script>
+</head>
+<body>
+    <h1>.append() 메소드</h1>
+    <ul id="list">
+        <li>첫 번째 아이템이에요!</li>
+        <li>두 번째 아이템이에요!</li>
+        <li>세 번째 아이템이에요!</li>
+    </ul>
+    <button>아이템 추가</button>
+</body>
+</html>

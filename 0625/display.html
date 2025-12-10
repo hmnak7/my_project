@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS display 속성</title>
+  <style>
+    /* Do it! li 요소를 가로로 나란히 배치하기 */
+    nav ul {
+      list-style:none;      /* 불릿이나 숫자 번호 없앰 */
+    }
+
+    li {
+      width: 100px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin: 10px;
+      border: 1px solid #222;
+      display: inline-block;
+      /* display: none; */
+      /*li요소를 가로로 나란히 배치*/
+    }
+    
+    a {
+      text-decoration: none;     /* 텍스트 링크 밑줄 없애기 */
+    }
+
+    img:hover{
+      /* display: none; */
+      visibility: hidden; 
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+  *블록(block): 줄 바꿈
+   div, p, h1~h6 ,ul, ol, li 등
+    
+   *인라인(inline): 줄바꿈 없음
+   span, a, img 등
+
+   *인라인 블록(inline-block): 줄바꿈 없음, 너비의 높이 지정 가능
+
+   display 속성값이 인라인-블록으로 설정한 요소는 해당 요소 자체는 인라인(inline) 요소처럼 동작합니다.
+
+   하지만 해당 요소 내부에서는 블록(block) 요소처럼 동작합니다.
+
+   이처럼 인라인-블록 요소는 인라인 요소와 비슷하지만, 너비와 높이를 설정할 수 있습니다.
+
+   또한, 블록 요소처럼 margin을 이용하여 여백을 지정할 수도 있게 됩니다.
+   -->
+  <p>상단 글자</p><p>하단 글자</p>
+  <span>상단 글자 2</span>
+  <span>하단 글자 2</span>
+  <br>
+  <a href="#">링크1</a>
+  <a href="#" class="link">링크2</a> <br>
+  <img src="../0624/images/top.jpg" width="100" alt="이미지 예시">
+  <img src="../0624/images/bg.jpg" width="100" alt="이미지 예시2">
+  
+     <nav>
+     <ul>
+      <li><a href="#">메뉴 1</a></li>
+      <li><a href="#">메뉴 2</a></li>
+      <li><a href="#">메뉴 3</a></li>
+      <li><a href="#">메뉴 4</a></li>
+     </ul>
+   </nav>
+</body>
+</html>

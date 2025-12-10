@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList 예제</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>classList 사용 예제</h1>
+    <p id="text">이 문장을 클릭하여 스타일을 변경해 보세요!</p>
+    <button id="add-button">클래스 추가</button>
+    <button id="remove-button">클래스 제거</button>
+    <button id="toggle-button">클래스 토글</button>
+
+    <script>
+        const textElement = document.getElementById('text');
+        const addButton = document.getElementById('add-button');
+        const removeButton = document.getElementById('remove-button');
+        const toggleButton = document.getElementById('toggle-button');
+
+        // 클래스 추가
+        addButton.addEventListener('click', () => {
+            textElement.classList.add('highlight');
+        });
+
+        // 클래스 제거
+        removeButton.addEventListener('click', () => {
+            textElement.classList.remove('highlight');
+        });
+
+        // 클래스 토글
+        toggleButton.addEventListener('click', () => {
+            textElement.classList.toggle('highlight');
+        });
+    </script>
+</body>
+</html>

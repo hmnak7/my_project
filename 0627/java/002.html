@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Apply</title>
+    <script>
+		function printDate() {
+			document.getElementById("date").innerHTML = Date();
+            document.getElementById("date").style.fontSize='50px';
+            document.getElementById("date").style.fontWeight='bold';
+            document.getElementById("date").style.color='blue';
+
+        // 위에 거가 너무 길기 때문에 스타일 자체를 변수로 처리 가능.
+            var el = document.getElementById("date").style;
+            el.fontSize = "70px";
+            el.fontWeight = "normal";
+            el.color = "purple";
+		}
+
+         window.onload = function() {
+            printDate()}
+	</script>
+</head>
+<body>
+    <h1>head 태그 내의 자바스크립트</h1>
+	<p>자바스크립트를 이용하면 현재 날짜와 시간 정보에도 손쉽게 접근할 수 있어요!</p>
+	<button onclick="printDate()">현재 날짜와 시간 표시하기!</button>
+	<p id="date"></p>
+</body>
+</html>

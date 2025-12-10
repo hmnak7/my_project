@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     table{border-collapse: collapse;}
+     td {border: 1px solid #333; padding: 5px;}
+    </style>
+</head>
+<body>
+<div id = "gugu_cont"></div>
+<script>
+
+    function gugudan(start, end, div){
+
+    // var start = 5;
+    // var end = 9;
+    // var div = 4;
+
+    var cont = "";
+    cont += "<table>";
+    cont += "<tr>";
+    var init = 0;
+    for (let i = start; i <= end; i++) {
+        init++;
+        cont += "<td>";
+        for (let j = 1; j <= 9; j++) {
+                cont += `${i} x ${j} = ${i * j}<br>`;
+            }
+           cont += "</td>";
+           if(init % div ==0){
+            cont +="</tr><tr>";
+            init = 0;
+        }
+    }
+        cont += "</tr>";
+        cont += "</table>";
+
+        document.querySelector("#gugu_cont").innerHTML = cont;
+    }
+
+    gugudan(2, 7, 3);
+
+
+
+    </script>
+</body>
+</html>

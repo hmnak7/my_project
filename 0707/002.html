@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border:1px solid #333;
+        }
+        td {
+            border:1px solid #333; 
+            padding: 10px;
+        }
+        .result {
+			display:inline-block;
+			height: 20px;
+			width: 20px;
+			border:1px solid rgb(199, 64, 64);
+            text-align: center;
+		}
+		.result > span{
+            padding: 0;
+		}
+		.hidden {			
+            color: white;
+		}
+        
+        td > span{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.write("<table>");
+		document.write("<tr>");
+        for(let i=2; i<=9; i++){
+            document.write("<td>");
+            for(let j=1; j<=9; j++){
+                
+                let html = `<span onclick="this.querySelector('.result > span').classList.toggle('hidden')">`;
+                html += `${i} x ${j} = `;
+                html += `<span class="result">`;
+                html += `<span class="hidden">${i*j}</span>`;
+                html += `</span>`;
+                html += `</span><br>`;
+                document.write(html);        
+            }
+            document.write("</td>");
+			
+			if(i % 4 == 1) document.write("</tr><tr>");
+        }
+        document.write("</tr>");
+        document.write("</table>");
+    </script>
+</body>
+</html>

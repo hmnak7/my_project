@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+<body>
+    <script>
+        // 똑같은 명령을 (일정 횟수 만큼||무한) 반복
+
+        //while
+        /*
+        var i = 1;
+
+        while(i <= 10){
+            document.write(i*7 + "<br>");
+            i++;
+        }
+        document.write("잘 출력되었습니다.")
+        */
+
+        //do while
+        /*
+        var i = 1, j = 1;
+
+        while(i>3){
+            document.write(i + "<br>")
+        }
+
+        do{
+            document.write(j + "<br>")
+        }while(j > 3);
+
+        let password;
+        do{
+            password = prompt("비밀번호를 입력하세요(최소 6자:)");
+        } while(password.length < 6);
+
+        document.write("패스워드:" + password);
+        */
+
+        var i = 1;
+        var save = 12;
+
+        while(i <= 10){
+            document.write(i + "<br>");
+            // if(i==5) break;
+            i++;
+            save--;
+            if(save==0) break;
+        }
+    </script>
+</body>
+</html>

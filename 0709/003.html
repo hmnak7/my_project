@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../myfunc.js"></script>
+
+</head>
+<body>
+    <div id = "ctime"></div>
+    <script>
+        let today = new Date();
+
+        function formatDate(date) {
+            const year = date.getFullYear();
+
+            // 월은 0부터 시작하므로 + 1
+            // string: 숫자를 문자열로 변황
+            // padstart(a,b): a 자리수 만큼 b값으로 사전 체우기 -> 위에 값이 점점 올라감(오른쪽 정렬 개념)
+
+            // const month = String(date.getMonth() + 1).padStart(2, '0');
+
+            const preMonth = date.getMonth() + 1;
+            const month = (preMonth<10)? '0'+preMonth: ''+preMonth
+
+            const day = String(date.getDate()).padStart(2, '0');
+            // const day = date.getDate(preDate<10)? '0'+preDate: ''+preDate
+
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+
+            return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        }
+
+        document.querySelector("#ctime").textContent = formatDate(today);
+        //print(formatDate(today))
+
+        // 1000ms(1초)마다 myFunction을 반복 실행
+        // setInterval(myFunction, 1000);
+
+        // 2000ms(2초후에 myFunction 한 번 실행
+        // setTimeout(myFunction, 2000);
+
+        // let times = 1000 * 60 * 5; // 5분
+        let times = 1000 * 1; // 1초
+
+        setInterval(function(){
+            let today = new Date();
+            document.querySelector("#ctime").textContent = formatDate(today);
+            console.log("아")
+        }, times);
+    </script>
+</body>
+</html>

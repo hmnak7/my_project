@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요일 활동 제안</title>
+</head>
+<body>
+    <script>
+        var day = prompt("오늘은 무슨 요일인가요? (예: 월요일, 화요일 등)");
+
+        switch (day) {
+            case "월요일":
+                document.write("오늘은 새로운 한 주의 시작입니다! <br>운동을 해보세요.");
+                break;
+            case "화요일":
+                document.write("오늘은 좋은 책을 읽는 날입니다. 독서 시간을 가져보세요.");
+                break;
+            case "수요일":
+                document.write("중간 주입니다! 친구와 커피 한 잔 어때요?");
+                break;
+            case "목요일":
+                document.write("오늘은 요리를 시도해보세요. 새로운 레시피를 찾아보세요!");
+                break;
+            case "금요일":
+                document.write("주말이 다가옵니다! 영화를 보러 가는 건 어떨까요?");
+                break;
+            case "토요일":
+                document.write("완전한 휴식의 날입니다! 가족과 함께 시간을 보내세요.");
+                break;
+            case "일요일":
+                document.write("다음 주를 준비하는 날입니다. 일주일 계획을 세워보세요.");
+                break;
+            default:
+                document.write("올바른 요일을 입력해주세요.");
+        }
+    </script>
+</body>
+</html>

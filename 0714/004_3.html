@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>값 주고받기 예제</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        select { width: 150px; height: 150px; margin: 10px; }
+        button { margin: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>값 주고받기</h1>
+    
+    <select id="leftSelect" multiple>
+        <option>값 1</option>
+        <option>값 2</option>
+        <option>값 3</option>
+        <option>값 4</option>
+        <option>값 5</option>
+    </select>
+
+    <div>
+        <button id="toRight">보내기 &gt;&gt;</button>
+        <button id="toLeft">&lt;&lt; 받기</button>
+    </div>
+
+    <select id="rightSelect" multiple>
+        <option>값 6</option>
+        <option>값 7</option>
+        <option>값 8</option>
+        <option>값 9</option>
+        <option>값 10</option>
+    </select>
+
+    <script>
+        //$(document).ready(function(){
+        $(function(){
+            
+            $('#toRight').click(function() {
+                $('#leftSelect option:selected').each(function() {
+                    $(this).remove().appendTo('#rightSelect');
+                });
+            });
+
+            
+            $('#toLeft').click(function() {
+                $('#rightSelect option:selected').each(function() {
+                    $(this).remove().appendTo('#leftSelect');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

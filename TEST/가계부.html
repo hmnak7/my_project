@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>📒 가계부 앱</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 30px auto; padding: 10px; }
+    input, select, button { padding: 6px; margin: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background: #f2f2f2; }
+    .income { color: green; }
+    .expense { color: red; }
+  </style>
+</head>
+<body>
+
+  <h2>💰 가계부 앱</h2>
+
+  <div>
+    <input type="text" id="desc" placeholder="항목 설명">
+    <input type="number" id="amount" placeholder="금액">
+    <select id="type">
+      <option value="수입">수입</option>
+      <option value="지출">지출</option>
+    </select>
+    <button id="addBtn">추가</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>항목</th>
+        <th>금액</th>
+        <th>구분</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+    <tbody id="listBody"></tbody>
+  </table>
+
+  <canvas id="statsChart" width="400" height="200"></canvas>
+
+  <script>
+    let ledger = JSON.parse(localStorage.getItem("ledger")) || [];
+
+    function saveLedger() {
+      localStorage.setItem("ledger", JSON.stringify(ledger));
+    }
+
+    function renderList() {
+      const $body = $("#listBody");
+      $body.empty();
+
+      ledger.forEach((item, index) => {
+        const row = `
+          <tr>
+            <td>${item.desc}</td>
+            <td class="${item.type === '수입' ? 'income' : 'expense'}">${item.amount.toLocaleString()} 원</td>
+            <td>${item.type}</td>
+            <td><button class="delete" data-index="${index}">삭제</button></td>
+          </tr>
+        `;
+        $body.append(row);
+      });
+
+      renderChart();
+    }
+
+    function renderChart() {
+      const income = ledger.filter(item => item.type === '수입')
+                           .reduce((sum, i) => sum + i.amount, 0);
+      const expense = ledger.filter(item => item.type === '지출')
+                            .reduce((sum, i) => sum + i.amount, 0);
+
+      const ctx = document.getElementById('statsChart').getContext('2d');
+
+      // 기존 차트 제거 후 새로 생성
+      if (window.myChart) window.myChart.destroy();
+
+      window.myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['수입', '지출'],
+          datasets: [{
+            label: '금액',
+            data: [income, expense],
+            backgroundColor: ['#4caf50', '#f44336']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top'
+            },
+            title: {
+              display: true,
+              text: '수입/지출 통계'
+            }
+          }
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      renderList();
+
+      $("#addBtn").click(function () {
+        const desc = $("#desc").val().trim();
+        const amount = parseInt($("#amount").val(), 10);
+        const type = $("#type").val();
+
+        if (!desc || isNaN(amount)) {
+          alert("항목과 금액을 올바르게 입력하세요.");
+          return;
+        }
+
+        ledger.push({ desc, amount, type });
+        saveLedger();
+        renderList();
+
+        $("#desc").val("");
+        $("#amount").val("");
+      });
+
+      $("#listBody").on("click", ".delete", function () {
+        const index = $(this).data("index");
+        ledger.splice(index, 1);
+        saveLedger();
+        renderList();
+      });
+    });
+  </script>
+
+</body>
+</html>

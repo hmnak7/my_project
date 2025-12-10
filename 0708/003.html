@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="../myfunc.js"></script>
+    <style>
+        #content{
+            border: 1px solid #ee2c2c;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "content"></div>
+
+    <button onclick ="add()">항목추가</button>
+    <button onclick = "lastRemove()">마지막 항목삭제</button>
+    
+    <script>
+        let todoList = [];
+        // todoList.push("공부");
+        // todoList.push("청소");
+        // todoList.push("점심");
+        // todoList.push("면접");
+
+        // let todoList = ["공부", "청소", "점심", "면접"];
+
+        cprint("현재배열: ", todoList);
+
+        function add(){
+            let newItem = prompt("추가할 항목: ");
+            if(newItem){
+                //console.log(newItem, "OK!!!")
+                todoList.push(newItem);
+                cprint("현재배열: ", todoList);
+                render();
+            }
+
+        }
+
+        function lastRemove(){
+            todoList.pop();
+            cprint("현재배열: ", todoList);
+            render();
+
+        }
+
+        function remove(idx) {
+            todoList.splice(idx,1);
+            cprint("현재배열: ", todoList);
+            render();
+            
+        }
+
+
+        function render(){
+            let mydiv = document.querySelector("#content");
+
+            let lastResult = "";
+            for(let i=0; i < todoList.length; i++){
+                // lastResult += "<p>"+todoList[i]+"<button onclick='remove(" + i +")'>X</button></p>";
+                lastResult += `<p>${todoList[i]}<button onclick="remove(${i})">X</button></p>`;
+                // lastResult += "<p>"+todoList[i]+"</p>";
+                // mydiv.innerHTML += "<p>"+todoList[i]+"</p>";
+            }
+
+            mydiv.innerHTML = lastResult
+        }
+
+        render();
+    </script>
+</body>
+</html>

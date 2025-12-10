@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Operators</title>
+</head>
+
+<body>
+
+    <h1>증감 연산자</h1>
+
+    <script>
+        
+        for(let i = 1; i <= 10; i++) {
+            console.log(i); 
+            // 1부터 10까지의 숫자를 출력
+        }
+        
+        var x = 10, y = 10;
+        document.write((++x - 3) + "<br>");
+        // x의 값을 우선 1 증가시킨 후에 3을 뺌.
+
+        document.write(x + "<br>");
+        // 11
+
+        document.write((y++ - 3) + "<br>");
+        // 먼저 y에서 3을 뺀 후에 y의 값을 1 증가시킴.
+
+        document.write(y);
+        // 11
+    </script>
+
+    <script>
+      // 비교 연산자 예제
+      let a = 5;
+      let b = '5';
+      let c = 10;
+
+      console.log(a == b);  // true (값이 같음)
+      console.log(a === b); // false (타입이 다름) : 값과 타입이 같아야만 true
+      console.log(a != c);  // true (값이 다름)
+      console.log(a !== b); // true (값은 같지만 타입이 다름)
+      console.log(a > c);   // false (5는 10보다 작음)
+      console.log(a >= 5);  // true (같음)
+      console.log(a < c);   // true (5는 10보다 작음)
+      console.log(a <= 5);  // true (같음)
+
+      // 논리 연산자 예제
+      let x1 = true;
+      let y1 = false;
+
+      console.log(x1 && y1); // false (모두 참이 아님)
+      console.log(x1 || y1); // true (하나가 참)
+      console.log(!x1);     // false (x가 참이므로 NOT 연산)
+      console.log(!(x1 && y1)); // true (AND 결과가 거짓이므로 NOT 연산)
+    </script>
+    
+</body>
+
+</html>

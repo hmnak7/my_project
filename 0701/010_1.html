@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .explain {
+            color: blue;
+        }
+        #hours, #fee {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class ="explain"> 주차 <span id = "hours">5</span>시간 비용은 <span id = "fee">1000</span>원입니다.</div>
+    <script>
+         /*
+       사용자가 입력한 주차 시간을 기반으로 총 주차 요금을 계산하는 프로그램을 작성하시오.
+       2시간 이하일 경우 5.000원, 2시간 초과 시 간당 추가로 3,000원씩 부과하시오.
+       계산된 요금을 출력하시오.
+       */
+        var hours = prompt("주차시간을 입력하세요.")
+       // var hours = 7;
+       var fee;
+
+       if(hours <= 2) {
+        fee = 5000;
+       }else{
+        fee = 5000 + ((hours -2) * 3000)
+       }
+
+     // document. write(`<br>주차시간 ${hours}시간 비용은 ${fee}원 입니다.`)
+
+       document.getElementById("hours").innerHTML = hours;
+       document.getElementById("fee").innerHTML = fee;
+    </script>
+</body>
+</html>

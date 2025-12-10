@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript Intro</title>
+    <style>
+        p{color: #eb3a3a;}
+    </style>
+    <script>
+        /* document.write("<h1>여러분을 환영합니다.</h1>");
+        console.log("여러분을 환영합니다.");
+        alert("여러분을 환영합니다.");
+        */
+
+        /*
+        var a;
+        a = 10;
+        console.log(a);
+        */
+
+        /*
+        var a=25;
+        var a="안녕하세요";
+        console.log(a);
+        */
+
+        /*
+        var x = 10; //변수
+        let y = 20; //변수
+        const z = 30; //상수
+        console.log(x, y, z);
+        */
+
+        /*
+        let x = 3975; //변수
+        let y = 3490; //변수
+
+
+        // + :덧셈
+        // - : 뺄셈
+        // * : 곱셈
+        // / : 나눗셈
+        // % : 나머지
+
+        let z = x * y; //변수
+        console.log("x * y =" + z);
+        */
+
+        /*
+        let x = "이순신";
+        let y = "님 안녕하세요!";
+        let z = x + y; //문자열 연결
+        console.log(z);
+        */
+
+        window.onload = function() {
+        var gettxt = document.getElementById("mymy").
+        innerHTML;
+
+        // mymy값 출력
+        console.log("값: " + gettxt)
+
+        var dbtext = "안녕하세요 즐거운 금요일";
+
+        // document.getElementById("text").innerHTML = "<span style='color:green; font-size:20px;'>"+ dbtext + "</span>";
+
+        // mymy값 출력에 dbtext 스타일 덮어쓰기
+        document.getElementById("mymy").innerHTML =
+        `<span id='innerT' style='color:green; font-size:20px;'>${dbtext}</span> <br> <button type="button" onclick="window.print();">인쇄</button>`
+
+        // mymy값 출력에 덮어쓴 dbtext값 텍스트 출력
+        gettxt = document.getElementById("mymy").textContent;
+        console.log("값: "+ gettxt);
+
+        // mymy값 출력에 덮어쓴 dbtext값 내용 출력
+        gettxt = document.getElementById("mymy").innerHTML;
+        console.log("값:" + gettxt);
+
+        // 스타일 변경
+        document.getElementById("innerT").style.color="red";
+    }
+
+    </script>
+</head>
+<body>
+    <p id="mymy">반갑습니다</p>
+    <!-- <button type="button" onclick="window.print();">인쇄</button> -->
+</body>
+</html>

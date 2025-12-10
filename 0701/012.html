@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    <h1>성적 평가</h1>
+    <input type="number" id = "score" placeholder="점수 입력">
+    <button onclick="evaluateScore()">평가하기</button>
+    <p id = "evaluateResult"></p>
+    <script>
+       function evaluateScore () {
+        var score = document.getElementById("score").value;
+
+        // if (score >= 90) {
+        //     document.getElementById("evaluateResult").innerHTML = "A등급입니다.";
+        // }else if(score >= 80) {
+        //     document.getElementById("evaluateResult").innerHTML = "B등급입니다.";
+        // }else if(score >= 70) {
+        //     document.getElementById("evaluateResult").innerHTML = "C등급입니다.";
+        // }else if(score >= 60) {
+        //     document.getElementById("evaluateResult").innerHTML = "D등급입니다.";
+        // }else{
+        //     document.getElementById("evaluateResult").innerHTML = "F등급입니다.";
+        // }
+
+        if (score >= 90) {
+            score = "A";
+        }else if (score >=80){
+            score = "B";
+        }else if (score >=70){
+            score = "C";
+        }else if (score >=60){
+            score = "D";
+        }else {
+            score = "F";
+        }
+        document.getElementById("evaluateResult").innerHTML = `${score}등급입니다.`
+    }
+    </script>
+</body>
+</html>

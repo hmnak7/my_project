@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../myfunc.js"></script>
+
+</head>
+<body>
+    <script>
+        window.onload = function(){
+            // 문서의 모든 리소스싸지 로딩된 이후 실행
+            print("window.onload()");
+        }
+
+        //jQuery 기본형
+        $(document).ready(function(){
+            //리소스와 별개로 DOM구조만 로딩되면 바로 실행
+            print("document.ready()");
+        });
+
+        // jQuery 축약형: $()
+        $(function(){
+            print("document.ready()2");
+        });
+    </script>
+</body>
+</html>

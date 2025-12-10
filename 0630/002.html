@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Apply</title>
+    <style>
+        /* div 태그에 syntax 클래스가 있는 경우 */
+        div.syntax {display: none;}
+
+         /* syntax와 sp3 클래그가 동시에 있는 경우 (AND) */
+        .syntax.sp2 {display: block;}
+
+        /* syntax 또는 textarea 클래스 (OR) */
+        .syntax, .textarea {
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function viewBox(fname){
+            document.getElementById('js_intro_intro_02').src = fname;
+        }
+    </script>
+</head>
+<body>
+    <div class="syntax sp1">
+        <h5>내용 변경</h5>
+        <button class="textarea" onclick="document.getElementById('js_intro_intro_01').innerHTML = '단락의 내용이 변경되었습니다.'">단락의 내용 변경</button>
+
+        <button class="textarea" onclick="document.getElementById('js_intro_intro_01').innerHTML = '자바스크립트 공부중입니다!!!.'">단락의 내용 변경2</button>
+        
+        <p class="textarea" id="js_intro_intro_01">이 단락의 내용을 바꾸고 싶어요!</p>
+    </div>
+    <div class="syntax sp2">
+        <h5>속성값 변경</h5>
+        
+        <!-- <button class="textarea" onclick="document.getElementById('js_intro_intro_02').src = 'images/img_js_computer_on.png'">컴퓨터 켜기</button> -->
+
+        <button class="textarea" onclick="viewBox('images/img_js_computer_on.png')">컴퓨터 켜기</button>
+
+        <img class="textarea" id="js_intro_intro_02" src="images/img_js_computer_off.png" style="width: 350px; height: 417px;">
+
+        <!-- <button class="textarea" onclick="document.getElementById('js_intro_intro_02').src = 'images/img_js_computer_off.png'">컴퓨터 끄기</button> -->
+
+        <button class="textarea" onclick="viewBox('images/img_js_computer_off.png')">컴퓨터 끄기</button>
+
+        
+
+        <!-- <img class="textarea" id="js_intro_intro_02" src="images/rabbit.jpg" style="width: 350px; height: 350px;"> -->
+
+         <!-- <button class="textarea" onclick="viewBox('images/rabbit_real.jpg')">토끼1</button>
+         <button class="textarea" onclick="viewBox('images/rabbit.jpg')">토끼2</button> -->
+    </div>
+    <div class="syntax sp3">
+        <h5>스타일 변경</h5>
+        <button class="textarea" onclick="document.getElementById('js_intro_intro_03').style.fontSize = '30px'">단락의 스타일(크기) 변경</button>
+
+        <button class="textarea" onclick="document.getElementById('js_intro_intro_03').style.color ='#ff0000'">단락의 스타일(색깔) 변경</button>
+        
+        <p class="textarea" id="js_intro_intro_03">이 단락의 스타일을 바꾸고 싶어요!</p>
+    </div>
+</body>
+</html>

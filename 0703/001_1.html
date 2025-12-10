@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+</head>
+<body>
+    <h2>할일 목록 추가하기</h2>
+    <form onsubmit="addtodo(event)">
+        <input type="text" id="mytodo" value=""/>
+        <button>추가</button>
+    </form>
+    <ul id="todolist">
+        <li>공부하기</li>
+        <li>청소하기</li>
+    </ul>
+    <script>
+        function addtodo(event) {
+            event.preventDefault();
+
+            let inputVal = document.getElementById("mytodo").value;
+
+            if(inputVal.trim() !=""){
+
+                var a = document.getElementById("todolist").innerHTML;
+
+                document.getElementById("todolist").innerHTML = a + `<li>${inputVal}</li>`;
+
+                document.getElementById("mytodo").value = "";
+                document.getElementById("mytodo").focus();
+
+            }else{
+                alert("값을 입력해 주세요~")
+            }
+
+        }
+    </script>    
+</body>
+</html>

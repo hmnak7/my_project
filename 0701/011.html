@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculateDiscount(){
+           var membershipLevel = document.getElementById("membershipLevel").value;
+        //    if(membershipLevel == '1234') {
+        //     location.href = 'https://naver.com';
+        //    }else{
+        //     location.href = 'https://google.com'
+        //    }
+           console.log(membershipLevel);
+
+           if(membershipLevel=='gold') {
+            document.getElementById("discountResult").innerHTML = "20%할인 적용";
+           }else if(membershipLevel=='silver'){
+            document.getElementById("discountResult").innerHTML = "10%할인 적용";
+           }else{
+            document.getElementById("discountResult").innerHTML = "할인 없음";
+           }
+        }
+    </script>
+<body>
+    <!-- 
+    사용자가 입력학 회원 등급(예: 'gold', 'silver')에 따라 할인율을 출력하는 프로그램을 작성하ㅛㅣ오.
+    'gold'일 경우 "20%할인 적용", 'silver'일 경우 "10% 할인 적용", 그 외의 경우 "할인 없음"이라고 출력하시오. -->
+    <h1>회원 할인 계산기</h1>
+    <input type="text" id="membershipLevel" placeholder="회원 등급 입력 (gold, silver)" value="">
+    <button onclick="calculateDiscount()">할인 계산</button>
+    <p id = "discountResult"></p>
+</body>

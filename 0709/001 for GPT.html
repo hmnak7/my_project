@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 15px auto;
+          }
+
+      th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: center;
+      }
+      
+      th {
+      background-color: #ffe8f8;
+       }
+    </style>
+</head>
+<body>
+
+    <h2>로봇 센싱 데이터 대시보드</h2>
+    <div id="tableContainer"></div>
+
+    <script>
+        const sensorData = [
+      { "time": "08:00", "temperature": 22, "humidity": 45, "vibration": 0.5 },
+      { "time": "09:00", "temperature": 24, "humidity": 50, "vibration": 0.7 },
+      { "time": "10:00", "temperature": 23, "humidity": 48, "vibration": 0.6 },
+      { "time": "11:00", "temperature": 25, "humidity": 55, "vibration": 0.8 },
+      { "time": "12:00", "temperature": 26, "humidity": 52, "vibration": 0.9 },
+      { "time": "13:00", "temperature": 27, "humidity": 54, "vibration": 1.0 },
+      { "time": "14:00", "temperature": 28, "humidity": 56, "vibration": 1.2 },
+      { "time": "15:00", "temperature": 29, "humidity": 58, "vibration": 1.1 },
+      { "time": "16:00", "temperature": 28, "humidity": 60, "vibration": 1.0 },
+      { "time": "17:00", "temperature": 27, "humidity": 59, "vibration": 0.9 },
+      { "time": "18:00", "temperature": 25, "humidity": 57, "vibration": 0.8 },
+      { "time": "19:00", "temperature": 24, "humidity": 55, "vibration": 0.7 },
+      { "time": "20:00", "temperature": 23, "humidity": 53, "vibration": 0.6 },
+      { "time": "21:00", "temperature": 22, "humidity": 50, "vibration": 0.5 },
+      { "time": "22:00", "temperature": 21, "humidity": 48, "vibration": 0.4 }
+    ];
+
+    function renderTable(data) {
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th>시간</th>
+              <th>온도(℃)</th>
+              <th>습도(%)</th>
+              <th>진동값</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      data.forEach(entry => {
+        html += `
+          <tr>
+            <td>${entry.time}</td>
+            <td>${entry.temperature}</td>
+            <td>${entry.humidity}</td>
+            <td>${entry.vibration}</td>
+          </tr>
+        `;
+      });
+
+      html += `
+          </tbody>
+        </table>
+      `;
+
+      document.getElementById("tableContainer").innerHTML = html;
+    }
+
+    renderTable(sensorData);
+
+
+    </script>
+</body>
+</html>

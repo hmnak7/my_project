@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML문서</title>
+    <style>
+        .b{color: blue;}
+        .r{color: red;}
+        table {
+            border-collapse: collapse;
+            border: 1px solid #333
+        }
+          td {
+            border:1px solid #333; 
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /*
+        for(let i = 2; i<=9; i++){
+            //document.write(`<span class="b">${i}</span>`);
+            for(let j=1; j<=9; j++){
+                //document.write(`<span class="r">${j}</span>`);
+                //document.write(`${i},${j}<br>`);
+                document.write(`${i} x ${j} = ${i*j}<br>`);
+            }
+        }*/
+
+        /*document.write("<table><tr><td>");
+
+         for(let i = 2; i<=9; i++){
+            document.write("<tr><td>");
+            for(let j=1; j<=9; j++){
+                document.write(`${i} x ${j} = ${i*j}<br>`);
+            }
+        }
+        document.write("</table></td></tr>");
+        */
+
+        // 구구단의 각 단을 td안에 넣기(세로)
+
+       /*document.write("<table>");
+
+         for(let i = 2; i<=9; i++){
+            document.write("<tr><td>");
+            for(let j=1; j<=9; j++){
+                document.write(`${i} x ${j} = ${i*j}<br>`);
+            }
+            document.write("</td></tr>")
+        }
+
+        document.write("</table>");
+        */
+
+        // 구구단의 각 단을 td안에 넣기(가로)
+
+        /*
+        document.write("<table><tr>");
+
+        for (let i = 2; i <= 9; i++) {
+            document.write("<td>");
+            for (let j = 1; j <= 9; j++) {
+                document.write(`${i} x ${j} = ${i * j}<br>`);
+            }
+           document.write("</td>");
+        }
+
+        document.write("</tr></table>");
+        */
+
+       /*document.write("<table><tr>");
+
+        for (let i = 2; i <= 9; i++) {
+            document.write("<td>");
+            for (let j = 1; j <= 9; j++) {
+                document.write(`${i} x ${j} = ${i * j}<br>`);
+            }
+           document.write("</td>");
+           if(i % 4==1)document.write("</tr><tr>");
+        }
+
+        document.write("</tr></table>");
+        */
+       </script>
+
+
+        구구단:
+        <input type = "number" id = "start" min = "2" max = "9" value = "2">~
+        <input type = "number" id = "end" min = "2" max = "9" value = "9">,
+
+        열 수:
+        <input type = "unmber" id = "div" min = "2" max = "9" value = "4">
+
+        <button id = "gugu_start">적용하기</button><br><br>
+        <div id = "gugu_cont"></div>
+
+        <script>
+
+        //함수 적용(start, end, div)
+
+        function gugudan(start, end, div){
+            document.write("<table><tr>");
+
+        for (let i = start; i <= end; i++) {
+            document.write("<td>");
+            for (let j = 1; j <= 9; j++) {
+                document.write(`${i} x ${j} = ${i * j}<br>`);
+            }
+           document.write("</td>");
+           if(i % div==1)document.write("</tr><tr>");
+        }
+
+        document.write("</tr></table>");
+    }
+
+    gugudan(2,70,4);
+
+    </script>
+    
+</body>
+</html>

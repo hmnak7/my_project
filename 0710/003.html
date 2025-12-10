@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> HTML 문서</title>
+    <script src="../myfunc.js"></script> 
+    <style>
+         #random {
+            width:100%;
+            height:200px;
+            border:1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div id ="random"></div>
+    <script>
+        /* 문자를 아스키 코드로 */
+        // const str = `Hello 123`;
+        // for (let i = 0; i < str.length; i++){
+        //     const char = str[i];
+        //     const asciiCode = str.charCodeAt(i);
+        //     console.log(`Charcter: ${char}, ASCII CodeL ${asciiCode}`);
+        // }
+
+        /* 아스키 코드를 문자로 */
+		// const asciiCodes = [72, 101, 108, 108, 111, 9, 32, 49, 50, 51, 10]; 
+		// const chars = asciiCodes.map(code => String.fromCharCode(code));
+		// console.log(chars);
+
+
+        /* random: 0 ~ 1 미만의 랜덤 실수*/
+        // let randomNum1 = Math.random( );
+        // cprint(randomNum1);
+
+        // let randomNum2 = Math.random() * 10;
+        // cprint(randomNum2)
+
+        // let randomNum3 = Math.floor(Math.random() * 100);
+        // cprint(randomNum3)
+
+        // // 5 ~ 12 미만
+        // let randomNum4 = Math.floor(Math.random() * (12-5+1)) + 5;
+        // cprint(randomNum4)
+
+        // function getRandomInt(min, max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+
+        // cprint(getRandomInt(1, 45));
+        // cprint(RandomInt(1, 100));
+
+        // const paths = ['A', 'B', 'C', 'D'];
+        // const paths = ['왼쪽', '오른쪽', '앞', '뒤'];
+
+        // const paths = ['행복', '슬픔', '중립', '화남'];
+
+        // // const SelectedPath = paths[Math.floor(Math.random() * paths.length)];
+
+        // const SelectedPath = paths[RandomInt(0, paths.length-1)];
+        // cprint("선택: " + SelectedPath);
+
+        // const feedbacks = [
+        //     '작업이 잘 진행되고 있습니다.',
+        //     '조금 더 노력하세요.',
+        //     '좋은 진행입니다!',
+        //     '문제가 발생했습니다.'
+        // ]
+
+        // const randomFeedback = feedbacks[[Math.floor(Math.random() * feedbacks.length)]];
+        // console.log(`로봇 피드백: ${randomFeedback}`)
+
+        const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        document.querySelector("#random").style.backgroundColor = randomColor;
+
+        cprint(randomColor);
+        cprint(["1", "2", "3"].toString());
+
+    </script>
+</body>
+</html>
